@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inventario>
+	<categoria>
+		<cantidad>4</cantidad>
+		<nombre>fruta</nombre>
+		<ingrediente1>manzana</ingrediente1>
+		<ingrediente2>pera</ingrediente2>
+		<ingrediente3>uvas</ingrediente3>
+		<ingrediente4>guayaba</ingrediente4>
+	</categoria>
+	<categoria>
+		<cantidad>4</cantidad>
+		<nombre>vegetal</nombre>
+		<ingrediente1>zanahoria</ingrediente1>
+		<ingrediente2>chayote</ingrediente2>
+		<ingrediente3>broccoli</ingrediente3>
+		<ingrediente4>camote</ingrediente4>
+	</categoria>
+	<categoria>
+		<cantidad>4</cantidad>
+		<nombre>grano</nombre>
+		<ingrediente1>arroz</ingrediente1>
+		<ingrediente2>cebada</ingrediente2>
+		<ingrediente3>frijoles</ingrediente3>
+		<ingrediente4>garbanzos</ingrediente4>
+	</categoria>
+	<categoria>
+		<cantidad>4</cantidad>
+		<nombre>carne</nombre>
+		<ingrediente1>pato</ingrediente1>
+		<ingrediente2>res</ingrediente2>
+		<ingrediente3>cerdo</ingrediente3>
+		<ingrediente4>pescado</ingrediente4>
+	</categoria>
+	<categoria>
+		<cantidad>4</cantidad>
+		<nombre>lacteo</nombre>
+		<ingrediente1>leche</ingrediente1>
+		<ingrediente2>queso</ingrediente2>
+		<ingrediente3>natilla</ingrediente3>
+		<ingrediente4>yogurt</ingrediente4>
+	</categoria>
+</inventario>

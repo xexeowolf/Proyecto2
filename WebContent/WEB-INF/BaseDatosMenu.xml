@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<platillo>
+		<nombre>SopaAzteca</nombre>
+		<categoria>2</categoria>
+		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
+		<precio>1200</precio>
+		<tiempo>60</tiempo>
+		<numero>2</numero>
+		<ingrediente1>tomates</ingrediente1>
+		<cantidad1>6</cantidad1>
+		<ingrediente2>aguacates</ingrediente2>
+		<cantidad2>3</cantidad2>	
+		<pasos>7</pasos>
+		<paso1>cocinar los tomates</paso1>
+		<paso2>pelar los aguacates</paso2>
+		<paso3>salpimentar</paso3>
+		<paso4>cortar los aguacates</paso4>
+		<paso5>unir todo en la olla</paso5>
+		<paso6>dejar hervir por 10 min</paso6>
+		<paso7>servir y decorar al gusto</paso7>
+	</platillo>
+	<platillo>
+		<nombre>SopaNegra</nombre>
+		<categoria>2</categoria>
+		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
+		<precio>1200</precio>
+		<tiempo>60</tiempo>
+		<numero>2</numero>
+		<ingrediente1>tomates</ingrediente1>
+		<cantidad1>6</cantidad1>
+		<ingrediente2>aguacates</ingrediente2>
+		<cantidad2>3</cantidad2>	
+		<pasos>7</pasos>
+		<paso1>cocinar los tomates</paso1>
+		<paso2>pelar los aguacates</paso2>
+		<paso3>salpimentar</paso3>
+		<paso4>cortar los aguacates</paso4>
+		<paso5>unir todo en la olla</paso5>
+		<paso6>dejar hervir por 10 min</paso6>
+		<paso7>servir y decorar al gusto</paso7>
+	</platillo>
+	<platillo>
+		<nombre>EnsaladaRepollo</nombre>
+		<categoria>1</categoria>
+		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
+		<precio>1200</precio>
+		<tiempo>60</tiempo>
+		<numero>2</numero>
+		<ingrediente1>tomates</ingrediente1>
+		<cantidad1>6</cantidad1>
+		<ingrediente2>aguacates</ingrediente2>
+		<cantidad2>3</cantidad2>	
+		<pasos>7</pasos>
+		<paso1>cocinar los tomates</paso1>
+		<paso2>pelar los aguacates</paso2>
+		<paso3>salpimentar</paso3>
+		<paso4>cortar los aguacates</paso4>
+		<paso5>unir todo en la olla</paso5>
+		<paso6>dejar hervir por 10 min</paso6>
+		<paso7>servir y decorar al gusto</paso7>
+	</platillo>
+	<platillo>
+		<nombre>PescadoAsado</nombre>
+		<categoria>3</categoria>
+		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
+		<precio>1200</precio>
+		<tiempo>60</tiempo>
+		<numero>2</numero>
+		<ingrediente1>tomates</ingrediente1>
+		<cantidad1>6</cantidad1>
+		<ingrediente2>aguacates</ingrediente2>
+		<cantidad2>3</cantidad2>	
+		<pasos>7</pasos>
+		<paso1>cocinar los tomates</paso1>
+		<paso2>pelar los aguacates</paso2>
+		<paso3>salpimentar</paso3>
+		<paso4>cortar los aguacates</paso4>
+		<paso5>unir todo en la olla</paso5>
+		<paso6>dejar hervir por 10 min</paso6>
+		<paso7>servir y decorar al gusto</paso7>
+	</platillo>
+	<platillo>
+		<nombre>BatidoFresa</nombre>
+		<categoria>4</categoria>
+		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
+		<precio>1200</precio>
+		<tiempo>60</tiempo>
+		<numero>2</numero>
+		<ingrediente1>tomates</ingrediente1>
+		<cantidad1>6</cantidad1>
+		<ingrediente2>aguacates</ingrediente2>
+		<cantidad2>3</cantidad2>	
+		<pasos>7</pasos>
+		<paso1>cocinar los tomates</paso1>
+		<paso2>pelar los aguacates</paso2>
+		<paso3>salpimentar</paso3>
+		<paso4>cortar los aguacates</paso4>
+		<paso5>unir todo en la olla</paso5>
+		<paso6>dejar hervir por 10 min</paso6>
+		<paso7>servir y decorar al gusto</paso7>
+	</platillo>
+	<platillo>
+		<nombre>CheeseCake</nombre>
+		<categoria>5</categoria>
+		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
+		<precio>1200</precio>
+		<tiempo>60</tiempo>
+		<numero>2</numero>
+		<ingrediente1>tomates</ingrediente1>
+		<cantidad1>6</cantidad1>
+		<ingrediente2>aguacates</ingrediente2>
+		<cantidad2>3</cantidad2>	
+		<pasos>7</pasos>
+		<paso1>cocinar los tomates</paso1>
+		<paso2>pelar los aguacates</paso2>
+		<paso3>salpimentar</paso3>
+		<paso4>cortar los aguacates</paso4>
+		<paso5>unir todo en la olla</paso5>
+		<paso6>dejar hervir por 10 min</paso6>
+		<paso7>servir y decorar al gusto</paso7>
+	</platillo>
+</menu>

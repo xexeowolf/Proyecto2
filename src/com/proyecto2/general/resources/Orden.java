@@ -1,6 +1,7 @@
 package com.proyecto2.general.resources;
 
-import com.estructurasdedatos.ListaDoble;
+import com.proyecto2.general.estructuradatos.ListaDoble;
+
 
 public class Orden {
 

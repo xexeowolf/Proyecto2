@@ -1,28 +1,44 @@
 package com.proyecto2.general.resources;
 
-import com.estructurasdedatos.ListaDoble;
-import com.estructurasdedatos.NodoDoble;
 
+import com.ibm.json.java.JSONArray;
+import com.ibm.json.java.JSONObject;
+import com.proyecto2.general.estructuradatos.ListaDoble;
+import com.proyecto2.general.estructuradatos.NodoDoble;
 
 public class Menu {
 	
-	public ListaDoble<Receta,Integer> recetas;
+	public ListaDoble<String,Platillo> recetas;
 
 	public Menu() {
-		recetas=new ListaDoble<Receta,Integer>();
+		recetas=new ListaDoble<String,Platillo>();
 	}
-	public void agregarReceta(Receta platillo){
-		recetas.addFirst(platillo, 0);
+	public Menu(ListaDoble<String,Platillo> menu){
+		recetas=menu;
 	}
-	public String mostrarMenu(){
-		String texto="Menu: \n";
-		NodoDoble<Receta,Integer> tmp=recetas.head;
-		while(tmp!=null){
-			texto=texto+" "+tmp.llave.nombre;
-			tmp=tmp.next;
+	public void agregarReceta(String categoria,Platillo platillo){
+		recetas.addFirst(categoria,platillo);
+	}
+	public JSONArray parseJSONArray(){
+		JSONArray arreglo=new JSONArray();
+		for(NodoDoble<String,Platillo>temp=recetas.head;temp!=null;temp=temp.next){
+			arreglo.add(temp.valor.parseJSONObject());
 		}
-		return texto;
+		return arreglo;
 	}
 	
-
+	public JSONArray parseEspecifico(int atributo){
+		JSONArray arreglo=new JSONArray();
+		for(NodoDoble<String,Platillo>temp=recetas.head;temp!=null;temp=temp.next){
+			JSONObject objeto=new JSONObject();
+			if(temp.valor.categoria==atributo){
+				objeto.put("atributo", temp.valor.nombre);
+				arreglo.add(objeto);
+			}
+		}
+		return arreglo;
+		
+		
+	}
+	
 }

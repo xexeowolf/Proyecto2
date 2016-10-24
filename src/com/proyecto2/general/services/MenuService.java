@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("/menu")
+@Path("/MenuS")
 public class MenuService {
 	
 	
