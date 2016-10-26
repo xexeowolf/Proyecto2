@@ -18,7 +18,7 @@ public class Platillo{
 	public String informacion;
 	public int precio;
 	public int tiempopreparacion;
-	int categoria;
+	public int categoria;
 	
 	public Platillo(){
 		

@@ -1,5 +1,6 @@
 package com.proyecto2.general.services;
 
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -7,11 +8,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-import com.ibm.json.java.JSONArray;
+import com.proyecto2.general.busquedaordenamiento.Busqueda;
+import com.proyecto2.general.estructuradatos.ColaPrioridad;
 import com.proyecto2.general.estructuradatos.ListaDoble;
+import com.proyecto2.general.estructuradatos.NodoDoble;
 import com.proyecto2.general.resources.BaseXML;
 import com.proyecto2.general.resources.Inventario;
 import com.proyecto2.general.resources.Menu;
@@ -22,6 +26,8 @@ import com.proyecto2.general.resources.Platillo;
 public class ChefService {
 	
 	BaseXML base=new BaseXML();
+	ListaDoble<String,String> nombres=base.cargarChefs(new ListaDoble<String,String>(),"/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosChefs.xml" );
+	ListaDoble<String,ColaPrioridad<String,String>> ordenes=base.cargarMatriz(nombres);
 	Inventario inventario=new Inventario(base.cargarInventario("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosInventario.xml"));
 	Menu menu=new Menu(base.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml"));
 	
@@ -29,14 +35,16 @@ public class ChefService {
 		 
 	}
 	
+	public void escrituraXMLInventario(){
+		base.escrituraXMLInventario(inventario);
+	}
 	
-	@POST
-	@Path("/menu/agregar")
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void agregar(String namae){
+	public void escrituraXMLMenu(){
+		base.escrituraXMLMenu(menu);
+	}
+	
+	public void agregarAlMenu(JSONObject objeto){
 		try {
-			JSONObject objeto=new JSONObject(namae);
 			String nombre=(String)objeto.get("nombre");
 			String info=(String)objeto.get("informacion");
 			int precio=(int)objeto.get("precio");
@@ -51,42 +59,81 @@ public class ChefService {
 				cantidad--;
 			}
 			while(pasos!=0){
-				receta.addFirst("paso"+cantidad,(String)objeto.get("paso"+pasos));
+				receta.addFirst("paso"+pasos,(String)objeto.get("paso"+pasos));
 				pasos--;
 			}
 			Platillo plato=new Platillo(nombre,categoria,ingredientes,receta,info,precio,tiempo);
 			menu.agregarReceta(nombre, plato);
+			escrituraXMLMenu();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/*JSONObject objeto=(JSONObject)arreglo.get(0);
-		String nombre=(String)objeto.get("nombre");
-		String info=(String)objeto.get("informacion");
-		int precio=(int)objeto.get("precio");
-		int tiempo=(int)objeto.get("tiempo");
-		int categoria=(int)objeto.get("categoria");
-		int cantidad=(int)objeto.get("cantidad");
-		int pasos=(int)objeto.get("pasos");
-		ListaDoble<String,Integer> ingredientes=new ListaDoble<String,Integer>();
-		ListaDoble<String,String> receta=new ListaDoble<String,String>();
-		while(cantidad!=0){
-			ingredientes.addFirst((String)objeto.get("ingrediente"+cantidad), 5);
-			cantidad--;
-		}
-		while(pasos!=0){
-			receta.addFirst("paso"+cantidad,(String)objeto.get("paso"+pasos));
-			pasos--;
-		}
-		Platillo plato=new Platillo(nombre,categoria,ingredientes,receta,info,precio,tiempo);
-		menu.agregarReceta(nombre, plato);*/
+	}
+	
+	
+	@GET
+	@Path("/tarea")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String obtenerTarea(){
+		return nombres.head.llave;
 		
-		/*ListaDoble<String,Integer>ingred=new ListaDoble<String,Integer>();
-		ingred.addFirst("tomate",3);
-		ingred.addFirst("aguacate",1);
-		ingred.addFirst("tortillas",10);
-		Platillo plato=new Platillo("Sopa Algas",2,ingred,new ListaDoble<String,String>(),"50 kcal",13000,30);
-		menu.agregarReceta("",plato);*/
+	}
+	
+	@POST
+	@Path("/orden")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String obtenerOrden(String nombre){
+		NodoDoble<String,ColaPrioridad<String,String>> temp;
+		temp=Busqueda.busquedaBinariaDL(ordenes, nombre, 0, ordenes.size);
+		if(temp!=null){
+			//enviar ordenes con formato definido
+		}
+		return "";
+	}
+	
+	
+	@POST
+	@Path("/menu/agregar")
+	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void agregarMenu(String algo){
+		try {
+			JSONArray arr=new JSONArray(algo);
+			int max=arr.length();
+			int min=0;
+			while(min<max){
+				JSONObject objeto=arr.getJSONObject(min);
+				agregarAlMenu(objeto);
+				min++;
+			}
+			 
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@POST
+	@Path("/inventario/agregar")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void agregarAlInv(String name){
+		try {
+			JSONObject objeto=new JSONObject(name);
+			inventario.agregarIngrediente(objeto.getString("categoria"), objeto.getString("nombre"));
+			escrituraXMLInventario();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@GET
+	@Path("/menu")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String enviar(){
+		return menu.parseJSONArray().toString();
 	}
 	
 	@GET

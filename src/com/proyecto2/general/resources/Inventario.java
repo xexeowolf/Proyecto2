@@ -2,6 +2,7 @@ package com.proyecto2.general.resources;
 
 import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
+import com.proyecto2.general.busquedaordenamiento.OrdenamientoDLL;
 import com.proyecto2.general.estructuradatos.ListaDoble;
 import com.proyecto2.general.estructuradatos.NodoDoble;
 
@@ -21,6 +22,7 @@ public class Inventario {
 		vegetales=new ListaDoble<String,String>();
 		lacteos=new ListaDoble<String,String>();
 		rellenar(inventario);
+		ordenar();
 	}
 	
 	public void agregarIngrediente(String categoria,String ingrediente){
@@ -40,6 +42,16 @@ public class Inventario {
 			tmp=tmp.next;
 		}
 	}
+	
+	public void ordenar(){
+		OrdenamientoDLL.QuickSort(frutas);
+		granos=OrdenamientoDLL.RadixSort(granos,new String[granos.size]);
+		OrdenamientoDLL.ShellSort(vegetales);
+		OrdenamientoDLL.BubbleSort(lacteos);
+		OrdenamientoDLL.InsertionSort(carnes);
+	}
+	
+	
 	public JSONArray parseEspecifico(int atributo){
 		JSONArray arreglo=new JSONArray();
 		if(atributo==1){

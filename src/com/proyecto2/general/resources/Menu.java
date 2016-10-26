@@ -3,6 +3,7 @@ package com.proyecto2.general.resources;
 
 import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
+import com.proyecto2.general.busquedaordenamiento.OrdenamientoDLL;
 import com.proyecto2.general.estructuradatos.ListaDoble;
 import com.proyecto2.general.estructuradatos.NodoDoble;
 
@@ -15,9 +16,11 @@ public class Menu {
 	}
 	public Menu(ListaDoble<String,Platillo> menu){
 		recetas=menu;
+		OrdenamientoDLL.ShellSort(recetas);
 	}
 	public void agregarReceta(String categoria,Platillo platillo){
 		recetas.addFirst(categoria,platillo);
+		OrdenamientoDLL.ShellSort(recetas);
 	}
 	public JSONArray parseJSONArray(){
 		JSONArray arreglo=new JSONArray();

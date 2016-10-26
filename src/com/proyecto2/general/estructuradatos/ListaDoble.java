@@ -2,6 +2,8 @@ package com.proyecto2.general.estructuradatos;
 
 
 
+
+
 /**
  * Clase generica que implementa una lista doblemente enlazada.
  * @author Luis ALfredo Piedra Esquivel
@@ -72,6 +74,12 @@ public class ListaDoble<E,T> {
 			tmp.prev=nuevo;
 		}
 		size++;
+	}
+	
+	public void add(NodoDoble<E,T> punt,E llave,T valor){
+		NodoDoble<E,T> nuevo= new NodoDoble<E,T>(llave,valor);
+		punt.next=nuevo;
+		nuevo.prev=punt;
 	}
 	/**
 	 * Metodo que elimina el primer nodo de la lista.
