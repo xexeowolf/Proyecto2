@@ -32,9 +32,6 @@ import com.proyecto2.general.resources.Inventario;
 import com.proyecto2.general.resources.Menu;
 import com.proyecto2.general.resources.Platillo;
 
-
-
-
 @Path("/cliente")
 public class ClienteService {
 	
@@ -43,15 +40,60 @@ public class ClienteService {
 	ListaDoble<String,ColaPrioridad<String,String>> ordenes=base.cargarMatriz(nombres);
 	Inventario inventario=new Inventario(base.cargarInventario("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosInventario.xml"));
 	Menu menu=new Menu(base.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml"));
+	ColaPrioridad<Integer,String> jerarquia=base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
 	
 	@POST
 	@Path("/orden")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void agregarOrden(String algo){
+	public void jerarquiaOrden(String orden){
+		try {
+			JSONArray cat=new JSONArray(orden);
+			int priori=Integer.parseInt(cat.getString(0));
+			jerarquia.insertar(priori,cat.getString(1));
+			base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
+						
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		cargarOrden();
+		
+	}
+	public void cargarOrden(){
+		if(jerarquia.head.llave!=0){
+			distribuirOrden(jerarquia.head.valor);
+			if(jerarquia.size==1){
+				jerarquia.head.llave=0;
+			}else{
+				jerarquia.head=jerarquia.head.next;
+				jerarquia.size--;
+			}
+			base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
+		}else{
+			
+		}
+	}
+	public void distribuirOrden(String order){
+		try {
+			JSONArray arr=new JSONArray(order);
+			NodoDoble<String,String>puntero=nombres.head;
+			for(int i=0;i<arr.length();i++){
+				if(puntero==null){
+					puntero=nombres.head;
+				}
+				agregarOrden(arr.getJSONObject(i).getString("nombre"),puntero.llave);
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void agregarOrden(String recipe,String usuario){
 		
 		ListaDoble<String,String>orden=new ListaDoble<String,String>();
-		try {
-			JSONArray arr=new JSONArray(algo);
+		try {/*
+			JSONArray arr=Jarray;
 			int max=arr.length();
 			int min=0;
 			while(min<max){
@@ -59,7 +101,8 @@ public class ClienteService {
 				String msj=objeto.getString("nombre");
 				orden.addFirst(msj, "");
 				min++;
-			}
+			}*/
+			orden.addFirst(recipe, "");
 			NodoDoble<String,String>temp=orden.head;
 			while(temp!=null){
 				NodoDoble<String,Platillo> punt=Busqueda.busquedaBinariaDL(menu.recetas, temp.llave, 0,menu.recetas.size);
@@ -77,12 +120,12 @@ public class ClienteService {
 					pasos=pasos+"jk"+puntR.llave+": "+puntR.valor;
 					puntR=puntR.next;
 				}
-				
-				ordenes.head.valor.addFirst(nomLlave, pasos);}
+				NodoDoble<String,ColaPrioridad<String,String>>unPuntero=Busqueda.busquedaBinariaDL(ordenes, usuario, 0, ordenes.size);
+				unPuntero.valor.addFirst(nomLlave, pasos);}
 				temp=temp.next;
 			}
 			base.escrituraXMLOrdenes(ordenes);
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

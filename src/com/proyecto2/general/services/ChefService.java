@@ -31,6 +31,7 @@ public class ChefService {
 	Inventario inventario=new Inventario(base.cargarInventario("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosInventario.xml"));
 	Menu menu=new Menu(base.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml"));
 	
+	
 	public ChefService() {
 		 
 	}
@@ -87,10 +88,36 @@ public class ChefService {
 	public String obtenerOrden(String nombre){
 		NodoDoble<String,ColaPrioridad<String,String>> temp;
 		temp=Busqueda.busquedaBinariaDL(ordenes, nombre, 0, ordenes.size);
+		JSONArray arrT=new JSONArray();
+		
 		if(temp!=null){
-			//enviar ordenes con formato definido
+			try {
+				if(temp.valor.head.valor.length()!=1){
+				System.out.println(temp.valor.head.valor);
+				JSONObject objeto=new JSONObject();
+				objeto.put("atributo",temp.valor.head.llave);
+				arrT.put(objeto);
+				objeto=new JSONObject();
+				objeto.put("atributo",temp.valor.head.valor);
+				arrT.put(objeto);
+				if(temp.valor.head.next==null){
+					temp.valor.head.valor="1";
+					temp.valor.head.llave="1";
+				}
+				base.escrituraXMLOrdenes(ordenes);
+				}
+				else{
+					JSONObject warning=new JSONObject();
+					warning.put("atributo", "vacio");
+					arrT.put(warning);
+				}
+			} catch (JSONException e) {
+
+				e.printStackTrace();
+			}
 		}
-		return "";
+		return arrT.toString();
+		
 	}
 	
 	

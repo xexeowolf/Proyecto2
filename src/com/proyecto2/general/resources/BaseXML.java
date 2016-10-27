@@ -25,13 +25,128 @@ public class BaseXML {
 	public ListaDoble<String,Platillo> basedatosmenu;
 	public ListaDoble<String,String> basedatosinv;
 	
-	public BaseXML() {
+	public BaseXML(){
 		basedatosmenu=new ListaDoble<String,Platillo>();
 		basedatosinv=new ListaDoble<String,String>();
 	}
 	
+	public ColaPrioridad<Integer,String> cargarJerarquia(String direccion){
+		ColaPrioridad<Integer,String> cola=new ColaPrioridad<Integer,String>();
+		try {
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			File file=new File(direccion);
+			
+			if (file.exists()){
+				Document doc = db.parse(file);
+				Element docEle = doc.getDocumentElement();
+					NodeList informacion = docEle.getElementsByTagName("oro");
+					if (informacion != null && informacion.getLength() > 0) {
+						for (int i = 0; i < informacion.getLength(); i++) {
+							Node nodo = informacion.item(i);
+							if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+							
+								Element e = (Element) nodo;
+								NodeList elementos = e.getElementsByTagName("cantidad");	
+								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
+								while(cont!=0){
+									elementos = e.getElementsByTagName("orden"+cont);	
+									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
+									cola.addLast(3,nombre);
+									cont--;
+								}
+							}
+						}
+					}
+					informacion = docEle.getElementsByTagName("plata");
+					if (informacion != null && informacion.getLength() > 0) {
+						for (int i = 0; i < informacion.getLength(); i++) {
+							Node nodo = informacion.item(i);
+							if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+							
+								Element e = (Element) nodo;
+								NodeList elementos = e.getElementsByTagName("cantidad");	
+								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
+								while(cont!=0){
+									elementos = e.getElementsByTagName("orden"+cont);	
+									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
+									cola.addLast(2,nombre);
+									cont--;
+								}
+							}
+						}
+					}
+					informacion = docEle.getElementsByTagName("bronce");
+					if (informacion != null && informacion.getLength() > 0) {
+						for (int i = 0; i < informacion.getLength(); i++) {
+							Node nodo = informacion.item(i);
+							if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+							
+								Element e = (Element) nodo;
+								NodeList elementos = e.getElementsByTagName("cantidad");	
+								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
+								while(cont!=0){
+									elementos = e.getElementsByTagName("orden"+cont);	
+									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
+									cola.addLast(1,nombre);
+									cont--;
+								}
+							}
+						}
+					}
+			}else{
+					System.exit(1);
+				}		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cola;
+	}
 	
-	
+	public void escrituraXMLJerarquia(ColaPrioridad<Integer,String> cola){
+		try{
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+			// root elements
+			Document doc = docBuilder.newDocument();
+			Element rootElement = doc.createElement("categorias");
+			doc.appendChild(rootElement);
+			int contOro=1,contPlata=1,contBronce=1;
+			Element oro = doc.createElement("oro");
+			rootElement.appendChild(oro);
+			Element plata = doc.createElement("plata");
+			rootElement.appendChild(plata);
+			Element bronce = doc.createElement("bronce");
+			rootElement.appendChild(bronce);
+			for(NodoDoble<Integer,String> temp=cola.head;temp!=null;temp=temp.next){
+				switch(temp.llave){
+				case 0:Element genericoW=doc.createElement("nulo");genericoW.appendChild(doc.createTextNode("nulo"));oro.appendChild(genericoW);break;
+				case 1:Element generico=doc.createElement("orden"+contOro);generico.appendChild(doc.createTextNode(String.valueOf(temp.valor)));oro.appendChild(generico);contOro++;break;
+				case 2:Element genericoP=doc.createElement("orden"+contPlata);genericoP.appendChild(doc.createTextNode(String.valueOf(temp.valor)));plata.appendChild(genericoP);contPlata++;break;
+				case 3:Element genericoB=doc.createElement("orden"+contBronce);genericoB.appendChild(doc.createTextNode(String.valueOf(temp.valor)));bronce.appendChild(genericoB);contBronce++;break;
+				}			
+			}
+			Element Generico=doc.createElement("cantidad");
+			Generico.appendChild(doc.createTextNode(String.valueOf(contOro)));
+			oro.appendChild(Generico);
+			Generico=doc.createElement("cantidad");
+			Generico.appendChild(doc.createTextNode(String.valueOf(contPlata)));
+			plata.appendChild(Generico);
+			Generico=doc.createElement("cantidad");
+			Generico.appendChild(doc.createTextNode(String.valueOf(contBronce)));
+			bronce.appendChild(Generico);
+			
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult resulto = new StreamResult(new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml"));
+			transformer.transform(source, resulto);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	
 	public void escrituraXMLOrdenes(ListaDoble<String,ColaPrioridad<String,String>> matrix){
 		
