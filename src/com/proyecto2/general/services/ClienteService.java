@@ -42,6 +42,7 @@ public class ClienteService {
 	Menu menu=new Menu(base.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml"));
 	ColaPrioridad<Integer,String> jerarquia=base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
 	
+	
 	@POST
 	@Path("/orden")
 	@Consumes(MediaType.APPLICATION_JSON)

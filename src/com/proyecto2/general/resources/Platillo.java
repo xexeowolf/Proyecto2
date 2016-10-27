@@ -35,6 +35,8 @@ public class Platillo{
 		this.categoria=categoria;
 	}
 	
+	
+	
 	public JSONObject parseJSONObject(){
 		JSONObject objeto= new JSONObject();
 		objeto.put("nombre", nombre);

@@ -52,7 +52,7 @@ public class BaseXML {
 								while(cont!=0){
 									elementos = e.getElementsByTagName("orden"+cont);	
 									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
-									cola.addLast(3,nombre);
+									cola.addLast(3,nombre);//oro
 									cont--;
 								}
 							}
