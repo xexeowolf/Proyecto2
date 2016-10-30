@@ -42,23 +42,92 @@ public class ClienteService {
 	Menu menu=new Menu(base.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml"));
 	ColaPrioridad<Integer,String> jerarquia=base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
 	
+	ListaDoble<Integer,ListaDoble<String,String>>progresos=base.cargarProgresos();
+	
+	@POST 
+	@Path("/progreso")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String obtenerProgreso(String numero){
+		System.out.println("Obtuvoooo");
+		int num=Integer.parseInt(numero);
+		JSONArray ar=new JSONArray();
+		JSONObject ob=new JSONObject();
+		NodoDoble<Integer,ListaDoble<String,String>> lugar=progresos.head;
+		while(lugar!=null){
+			if(lugar.llave==num){
+				break;
+			}
+			lugar=lugar.next;
+		}
+		if(lugar!=null){
+		String cantidad;
+		System.out.println("Tamano: "+lugar.valor.size+" primero: "+lugar.valor.head.llave);
+		if(lugar.valor.head.llave.length()==1 && lugar.valor.size==1){
+			cantidad="0";
+		}else{
+			cantidad=String.valueOf(lugar.valor.size);
+		}
+		try {
+			ob.put("atributo", cantidad);
+			ar.put(ob);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}}else{
+			try {
+				ob.put("atributo", "500");
+				ar.put(ob);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	
+		return ar.toString();
+		
+	}
 	
 	@POST
 	@Path("/orden")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void jerarquiaOrden(String orden){
+		System.out.print("Llego");
 		try {
 			JSONArray cat=new JSONArray(orden);
 			int priori=Integer.parseInt(cat.getString(0));
 			jerarquia.insertar(priori,cat.getString(1));
-			base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
-						
+			int numeroMesa=Integer.parseInt(cat.getString(2));
+			NodoDoble<Integer,ListaDoble<String,String>> lugar=progresos.head;
+			while(lugar!=null){
+				if(lugar.llave==numeroMesa){
+					break;
+				}
+				lugar=lugar.next;
+			}
+			if(lugar!=null){
+				JSONArray totalOrden=new JSONArray(cat.getString(1));
+				for(int r=0;r<totalOrden.length();r++){
+					lugar.valor.addLast(totalOrden.getJSONObject(r).getString("nombre"), "");
+				}
+			}else{
+				ListaDoble<String,String> ordenesT=new ListaDoble<String,String>();
+				JSONArray totalOrden=new JSONArray(cat.getString(1));
+				for(int r=0;r<totalOrden.length();r++){
+					ordenesT.addLast(totalOrden.getJSONObject(r).getString("nombre"), "");
+					ordenesT.addFirst("a", "");
+				}
+				progresos.addLast(numeroMesa, ordenesT);
+			}
+			
+			base.escrituraXMLJerarquia(jerarquia);
+			base.escrituraXMLprogreso(progresos);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		cargarOrden();
 		
 	}
+	
 	public void cargarOrden(){
 		if(jerarquia.head.llave!=0){
 			distribuirOrden(jerarquia.head.valor);
@@ -68,7 +137,7 @@ public class ClienteService {
 				jerarquia.head=jerarquia.head.next;
 				jerarquia.size--;
 			}
-			base.cargarJerarquia("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosCategorias.xml");
+			base.escrituraXMLJerarquia(jerarquia);
 		}else{
 			
 		}
@@ -78,10 +147,12 @@ public class ClienteService {
 			JSONArray arr=new JSONArray(order);
 			NodoDoble<String,String>puntero=nombres.head;
 			for(int i=0;i<arr.length();i++){
-				if(puntero==null){
-					puntero=nombres.head;
-				}
 				agregarOrden(arr.getJSONObject(i).getString("nombre"),puntero.llave);
+				if(puntero.next==null){
+					puntero=nombres.head;
+				}else{
+					puntero=puntero.next;
+				}
 			}
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -93,16 +164,7 @@ public class ClienteService {
 	public void agregarOrden(String recipe,String usuario){
 		
 		ListaDoble<String,String>orden=new ListaDoble<String,String>();
-		try {/*
-			JSONArray arr=Jarray;
-			int max=arr.length();
-			int min=0;
-			while(min<max){
-				JSONObject objeto=arr.getJSONObject(min);
-				String msj=objeto.getString("nombre");
-				orden.addFirst(msj, "");
-				min++;
-			}*/
+		try {
 			orden.addFirst(recipe, "");
 			NodoDoble<String,String>temp=orden.head;
 			while(temp!=null){
@@ -117,6 +179,7 @@ public class ClienteService {
 				
 				NodoDoble<String,String>puntR=punt.valor.receta.head;
 				String pasos=puntR.llave+": "+puntR.valor;
+				puntR=puntR.next;
 				while(puntR!=null){
 					pasos=pasos+"jk"+puntR.llave+": "+puntR.valor;
 					puntR=puntR.next;
@@ -130,39 +193,6 @@ public class ClienteService {
 			e.printStackTrace();
 		}
 		
-	}
-	
-	public void escrituraXMLMenu(String nom){
-		  try {
-
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-
-			// root elements
-			Document doc = docBuilder.newDocument();
-			Element rootElement = doc.createElement("bigorder");
-			doc.appendChild(rootElement);
-			
-			Element raiz = doc.createElement("orden");
-			rootElement.appendChild(raiz);
-			Element generico = doc.createElement("nombre");
-			generico.appendChild(doc.createTextNode(nom));
-			raiz.appendChild(generico);
-				
-			// write the content into xml file
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
-			StreamResult resulto = new StreamResult(new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosOrdenes.xml"));
-
-			transformer.transform(source, resulto);
-
-
-		  } catch (ParserConfigurationException pce) {
-			pce.printStackTrace();
-		  } catch (TransformerException tfe) {
-			tfe.printStackTrace();
-		  }
 	}
 	
 

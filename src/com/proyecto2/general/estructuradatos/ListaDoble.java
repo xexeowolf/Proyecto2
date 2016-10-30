@@ -86,9 +86,16 @@ public class ListaDoble<E,T> {
 	 */
 	public void deleteFirst(){
 		if(head!=null){
-			head=head.next;
-			head.prev=null;
-			size--;
+			if(head.next!=null){
+				head=head.next;
+				head.prev=null;
+				size--;	
+			}
+			else{
+				head=tail=null;
+				size--;
+			}
+			
 		}
 	}
 	/**
@@ -96,9 +103,14 @@ public class ListaDoble<E,T> {
 	 */
 	public void deleteLast(){
 		if(head!=null && tail!=null){
+			if(tail.prev!=null){
 			tail=tail.prev;
 			tail.next=null;
-			size--;
+			size--;}
+			else{
+				head=tail=null;
+				size--;
+			}
 		}
 	}
 	/**Metodo que elimina un elemento en una posicion especifica de la lista.
@@ -124,6 +136,18 @@ public class ListaDoble<E,T> {
 			System.out.print("Indice no valido\n");
 		}
 	}
+	
+	public void delete(NodoDoble<E,T> puntero){
+		if(puntero.prev!=null &&puntero.next!=null){
+			puntero.prev.next=puntero.next;
+			puntero.next.prev=puntero.prev;
+			size--;
+		}else{
+			System.out.println("No borro");
+		}
+	}
+	
+	
 	/**Metodo que busca un elemento en la lista y retorna true si lo encuentra, de lo contrario devuelve false.
 	 * @param elemento informacion que se busca dentro de la lista.Puede ser de cualquier tipo basico o previamente definido.
 	 * @return true o false

@@ -1,1 +1,80 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><inventario><categoria><cantidad>6</cantidad><nombre>fruta</nombre><ingrediente1>guayaba</ingrediente1><ingrediente2>mangosele</ingrediente2><ingrediente3>manzana</ingrediente3><ingrediente4>pera</ingrediente4><ingrediente5>sandia</ingrediente5><ingrediente6>uvas</ingrediente6></categoria><categoria><cantidad>5</cantidad><nombre>grano</nombre><ingrediente1>lentejas</ingrediente1><ingrediente2>garbanzo</ingrediente2><ingrediente3>frijoles</ingrediente3><ingrediente4>arroz</ingrediente4><ingrediente5>cebada</ingrediente5></categoria><categoria><cantidad>4</cantidad><nombre>carne</nombre><ingrediente1>cerdo</ingrediente1><ingrediente2>pato</ingrediente2><ingrediente3>pescado</ingrediente3><ingrediente4>res</ingrediente4></categoria><categoria><cantidad>4</cantidad><nombre>lacteo</nombre><ingrediente1>leche</ingrediente1><ingrediente2>natilla</ingrediente2><ingrediente3>queso</ingrediente3><ingrediente4>yogurt</ingrediente4></categoria><categoria><cantidad>4</cantidad><nombre>vegetal</nombre><ingrediente1>broccoli</ingrediente1><ingrediente2>camote</ingrediente2><ingrediente3>chayote</ingrediente3><ingrediente4>zanahoria</ingrediente4></categoria></inventario>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<inventario>
+	<categoria>
+		<cantidad>14</cantidad>
+		<nombre>fruta</nombre>
+		<ingrediente1>Coco</ingrediente1>
+		<ingrediente2>Jitomates</ingrediente2>
+		<ingrediente3>Aguacate</ingrediente3>
+		<ingrediente4>Limón</ingrediente4>
+		<ingrediente5>Kiwi</ingrediente5>
+		<ingrediente6>Mango</ingrediente6>
+		<ingrediente7>Pomelo</ingrediente7>
+		<ingrediente8>Granada</ingrediente8>
+		<ingrediente9>Sandia</ingrediente9>
+		<ingrediente10>Frambuesa</ingrediente10>
+		<ingrediente11>Crema de coco</ingrediente11>
+		<ingrediente12>Piña</ingrediente12>
+		<ingrediente13>Naranja</ingrediente13>
+		<ingrediente14>Manzanas</ingrediente14>
+	</categoria>
+	<categoria>
+		<cantidad>7</cantidad>
+		<nombre>grano</nombre>
+		<ingrediente1>Quinoa</ingrediente1>
+		<ingrediente2>Garbanzos</ingrediente2>
+		<ingrediente3>Arroz</ingrediente3>
+		<ingrediente4>Guanciale</ingrediente4>
+		<ingrediente5>Macarrones</ingrediente5>
+		<ingrediente6>Pan</ingrediente6>
+		<ingrediente7>Cafe</ingrediente7>
+	</categoria>
+	<categoria>
+		<cantidad>7</cantidad>
+		<nombre>carne</nombre>
+		<ingrediente1>Pechuga de pollo</ingrediente1>
+		<ingrediente2>Atún</ingrediente2>
+		<ingrediente3>Cangrejo</ingrediente3>
+		<ingrediente4>Huevo</ingrediente4>
+		<ingrediente5>Salmon</ingrediente5>
+		<ingrediente6>Filetes</ingrediente6>
+		<ingrediente7>Carne de Res</ingrediente7>
+	</categoria>
+	<categoria>
+		<cantidad>11</cantidad>
+		<nombre>lacteo</nombre>
+		<ingrediente1>Leche</ingrediente1>
+		<ingrediente2>Nata</ingrediente2>
+		<ingrediente3>Mantequilla</ingrediente3>
+		<ingrediente4>Mozzarella</ingrediente4>
+		<ingrediente5>Queso parmesano</ingrediente5>		
+		<ingrediente6>Queso</ingrediente6>
+		<ingrediente7>Leche condensada</ingrediente7>
+		<ingrediente8>Helado</ingrediente8>
+		<ingrediente9>Leche evaporada</ingrediente9>
+		<ingrediente10>Yogur</ingrediente10>
+		<ingrediente11>Crema de leche</ingrediente11>
+	</categoria>
+	<categoria>
+		<cantidad>18</cantidad>
+		<nombre>vegetal</nombre>
+		<ingrediente1>Calabaza</ingrediente1>
+		<ingrediente2>Jengibre</ingrediente2>
+		<ingrediente3>Apio</ingrediente3>
+		<ingrediente4>Zanahoria</ingrediente4>
+		<ingrediente5>Cebolla</ingrediente5>
+		<ingrediente6>Guisantes</ingrediente6>
+		<ingrediente7>Patatas</ingrediente7>
+		<ingrediente8>Setas</ingrediente8>
+		<ingrediente9>Champiñón</ingrediente9>
+		<ingrediente10>Habichuela</ingrediente10>
+		<ingrediente11>Chiles rojos</ingrediente11>
+		<ingrediente12>Aceitunas negras</ingrediente12>
+		<ingrediente13>Aceitunas verdes</ingrediente13>
+		<ingrediente14>Alcachofa</ingrediente14>
+		<ingrediente15>Tomate</ingrediente15>
+		<ingrediente16>Jitomate</ingrediente16>
+		<ingrediente17>Lechuga</ingrediente17>
+		<ingrediente18>Maíz dulce</ingrediente18>
+	</categoria>
+</inventario>

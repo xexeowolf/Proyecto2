@@ -35,7 +35,7 @@ public class Menu {
 		for(NodoDoble<String,Platillo>temp=recetas.head;temp!=null;temp=temp.next){
 			JSONObject objeto=new JSONObject();
 			if(temp.valor.categoria==atributo){
-				objeto.put("atributo", temp.valor.nombre);
+				objeto.put("atributo", temp.valor.nombre+"jkPrecio: "+temp.valor.precio+" colonesjkTiempo de preparacion: "+temp.valor.tiempopreparacion+"jkInformacion nutricional: "+temp.valor.informacion);
 				arreglo.add(objeto);
 			}
 		}

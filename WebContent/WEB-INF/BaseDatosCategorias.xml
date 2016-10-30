@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<categorias>
-	<oro>
-		<cantidad>0</cantidad>
-	</oro>
-	<plata>
-		<cantidad>0</cantidad>
-	</plata>
-	<bronce>
-		<cantidad>0</cantidad>
-	</bronce>
-</categorias>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><categorias><oro><nulo>nulo</nulo><cantidad>0</cantidad></oro><plata><cantidad>0</cantidad></plata><bronce><cantidad>0</cantidad></bronce></categorias>

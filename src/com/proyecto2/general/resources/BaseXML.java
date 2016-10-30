@@ -16,6 +16,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.proyecto2.general.busquedaordenamiento.OrdenamientoDLL;
 import com.proyecto2.general.estructuradatos.ColaPrioridad;
 import com.proyecto2.general.estructuradatos.ListaDoble;
 import com.proyecto2.general.estructuradatos.NodoDoble;
@@ -28,6 +29,82 @@ public class BaseXML {
 	public BaseXML(){
 		basedatosmenu=new ListaDoble<String,Platillo>();
 		basedatosinv=new ListaDoble<String,String>();
+	}
+	
+	
+	public ListaDoble<Integer,ListaDoble<String,String>> cargarProgresos(){
+		ListaDoble<Integer,ListaDoble<String,String>> progresos=new ListaDoble<Integer,ListaDoble<String,String>>();
+		try {
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			File file=new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/ProgresosOrdenes.xml");
+			
+			if (file.exists()){
+				Document doc = db.parse(file);
+				Element docEle = doc.getDocumentElement();
+					NodeList informacion = docEle.getElementsByTagName("orden");
+					if (informacion != null && informacion.getLength() > 0) {
+						for (int i = 0; i < informacion.getLength(); i++) {
+							Node nodo = informacion.item(i);
+							if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+							
+								Element e = (Element) nodo;
+								NodeList elementos = e.getElementsByTagName("numero");	
+								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
+								ListaDoble<String,String> ordenes=new ListaDoble<String,String>();
+								elementos = e.getElementsByTagName("pedido");
+								String[]todos=elementos.item(0).getChildNodes().item(0).getNodeValue().split("jk");
+								for(int k=0;k<todos.length;k++){
+									ordenes.addLast(todos[k], "");
+								}
+								OrdenamientoDLL.InsertionSort(ordenes);
+								progresos.addLast(cont, ordenes);
+						}
+					}
+				}
+					
+			}else{System.exit(1);}		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			OrdenamientoDLL.ShellSort(progresos);
+			return progresos;
+	}
+	
+	public void escrituraXMLprogreso(ListaDoble<Integer,ListaDoble<String,String>> progresos){
+		try{
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+			// root elements
+			Document doc = docBuilder.newDocument();
+			Element rootElement = doc.createElement("mesas");
+			doc.appendChild(rootElement);
+		
+			for(NodoDoble<Integer,ListaDoble<String,String>> puntero=progresos.head;puntero!=null;puntero=puntero.next){
+				Element oro = doc.createElement("orden");
+				rootElement.appendChild(oro);
+				Element Generico=doc.createElement("numero");
+				Generico.appendChild(doc.createTextNode(String.valueOf(puntero.llave)));
+				oro.appendChild(Generico);
+				String todoP=puntero.valor.head.llave;
+				for(NodoDoble<String,String> ped=puntero.valor.head.next;ped!=null;ped=ped.next){
+					todoP=todoP+"jk"+ped.llave;
+				}
+				Generico=doc.createElement("pedido");
+				Generico.appendChild(doc.createTextNode(todoP));
+				oro.appendChild(Generico);
+			}
+			
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult resulto = new StreamResult(new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/ProgresosOrdenes.xml"));
+			transformer.transform(source, resulto);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}		
 	}
 	
 	public ColaPrioridad<Integer,String> cargarJerarquia(String direccion){
@@ -50,10 +127,11 @@ public class BaseXML {
 								NodeList elementos = e.getElementsByTagName("cantidad");	
 								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
 								while(cont!=0){
-									elementos = e.getElementsByTagName("orden"+cont);	
+									elementos = e.getElementsByTagName("orden"+cont);
+									if(elementos!=null){
 									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
 									cola.addLast(3,nombre);//oro
-									cont--;
+									cont--;}
 								}
 							}
 						}
@@ -68,10 +146,11 @@ public class BaseXML {
 								NodeList elementos = e.getElementsByTagName("cantidad");	
 								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
 								while(cont!=0){
-									elementos = e.getElementsByTagName("orden"+cont);	
+									elementos = e.getElementsByTagName("orden"+cont);
+									if(elementos!=null){
 									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
 									cola.addLast(2,nombre);
-									cont--;
+									cont--;}
 								}
 							}
 						}
@@ -86,10 +165,11 @@ public class BaseXML {
 								NodeList elementos = e.getElementsByTagName("cantidad");	
 								int cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
 								while(cont!=0){
-									elementos = e.getElementsByTagName("orden"+cont);	
+									elementos = e.getElementsByTagName("orden"+cont);
+									if(elementos!=null){
 									String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
 									cola.addLast(1,nombre);
-									cont--;
+									cont--;}
 								}
 							}
 						}
@@ -121,10 +201,10 @@ public class BaseXML {
 			rootElement.appendChild(bronce);
 			for(NodoDoble<Integer,String> temp=cola.head;temp!=null;temp=temp.next){
 				switch(temp.llave){
-				case 0:Element genericoW=doc.createElement("nulo");genericoW.appendChild(doc.createTextNode("nulo"));oro.appendChild(genericoW);break;
-				case 1:Element generico=doc.createElement("orden"+contOro);generico.appendChild(doc.createTextNode(String.valueOf(temp.valor)));oro.appendChild(generico);contOro++;break;
+				case 0:Element genericoW=doc.createElement("nulo");genericoW.appendChild(doc.createTextNode("nulo"));oro.appendChild(genericoW);contOro=contPlata=contBronce=0;break;
+				case 3:Element generico=doc.createElement("orden"+contOro);generico.appendChild(doc.createTextNode(String.valueOf(temp.valor)));oro.appendChild(generico);contOro++;break;
 				case 2:Element genericoP=doc.createElement("orden"+contPlata);genericoP.appendChild(doc.createTextNode(String.valueOf(temp.valor)));plata.appendChild(genericoP);contPlata++;break;
-				case 3:Element genericoB=doc.createElement("orden"+contBronce);genericoB.appendChild(doc.createTextNode(String.valueOf(temp.valor)));bronce.appendChild(genericoB);contBronce++;break;
+				case 1:Element genericoB=doc.createElement("orden"+contBronce);genericoB.appendChild(doc.createTextNode(String.valueOf(temp.valor)));bronce.appendChild(genericoB);contBronce++;break;
 				}			
 			}
 			Element Generico=doc.createElement("cantidad");
@@ -206,7 +286,54 @@ public class BaseXML {
 		
 		
 	}
-	
+
+	public void escrituraXMLOrdenInicial(ListaDoble<String,String> chefs){
+		try{
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+			// root elements
+			Document doc = docBuilder.newDocument();
+			Element rootElement = doc.createElement("asignaciones");
+			doc.appendChild(rootElement);
+			
+			
+			NodoDoble<String,String> temp=chefs.head;
+			while(temp!=null){
+				
+				Element raiz = doc.createElement(temp.llave);
+				rootElement.appendChild(raiz);
+				
+				Element generico=doc.createElement("cantidad");
+				generico.appendChild(doc.createTextNode(String.valueOf(1)));
+				raiz.appendChild(generico);
+				
+				generico=doc.createElement("orden1");
+				generico.appendChild(doc.createTextNode("a"));
+				raiz.appendChild(generico);
+				
+				generico=doc.createElement("paso1");
+				generico.appendChild(doc.createTextNode("a"));
+				raiz.appendChild(generico);
+				
+				temp=temp.next;
+			}
+			
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult resulto = new StreamResult(new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosOrdenes.xml"));
+			transformer.transform(source, resulto);
+
+
+		  } catch (ParserConfigurationException pce) {
+			pce.printStackTrace();
+		  } catch (TransformerException tfe) {
+			tfe.printStackTrace();
+		  }
+			
+	}
+		
 	public ListaDoble<String,ColaPrioridad<String,String>> cargarMatriz(ListaDoble<String,String>chefs){
 		ListaDoble<String,ColaPrioridad<String,String>> matriz=new ListaDoble<String,ColaPrioridad<String,String>>();
 		NodoDoble<String,String>temp=chefs.head;
@@ -216,9 +343,7 @@ public class BaseXML {
 		}
 		return matriz;
 	}
-	
-	
-	
+		
 	public ColaPrioridad<String,String> cargarOrden(ColaPrioridad<String,String> cola,String direccion,String chefs){
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -239,15 +364,16 @@ public class BaseXML {
 								Element e = (Element) nodo;
 								NodeList elementos = e.getElementsByTagName("cantidad");	
 								cont=Integer.parseInt(elementos.item(0).getChildNodes().item(0).getNodeValue());
-								while(cont!=0){
-									elementos = e.getElementsByTagName("orden"+cont);	
+								int minimal=1;
+								while(minimal<=cont){
+									elementos = e.getElementsByTagName("orden"+minimal);	
 									nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
 									
-									elementos = e.getElementsByTagName("paso"+cont);	
+									elementos = e.getElementsByTagName("paso"+minimal);	
 									pasos=elementos.item(0).getChildNodes().item(0).getNodeValue();
 								
 									cola.addLast(nombre, pasos);
-									cont--;
+									minimal++;
 								}
 								
 							}
@@ -262,7 +388,6 @@ public class BaseXML {
 		}
 		return cola;
 	}
-	
 	
 	public ListaDoble<String,String> cargarChefs(ListaDoble<String,String> lista,String direccion){
 		try {
@@ -297,6 +422,36 @@ public class BaseXML {
 		return lista;
 		
 		
+	}
+	
+	public void escrituraXMLChefs(ListaDoble<String,String> chefs){
+		try {
+
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+			// root elements
+			Document doc = docBuilder.newDocument();
+			Element rootElement = doc.createElement("chefs");
+			doc.appendChild(rootElement);
+			
+			for(NodoDoble<String,String> head=chefs.head;head!=null;head=head.next){
+				Element raiz = doc.createElement("chef");
+				rootElement.appendChild(raiz);
+				Element generico = doc.createElement("nombre");
+				generico.appendChild(doc.createTextNode(head.llave));
+				raiz.appendChild(generico);
+			}
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult resulto = new StreamResult(new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosChefs.xml"));
+
+			transformer.transform(source, resulto);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
 	}
 	
 	
@@ -360,7 +515,7 @@ public class BaseXML {
 								min=1;
 								while(min<=pasos){
 									elementos=e.getElementsByTagName("paso"+min);
-									receta.addFirst("paso"+min,elementos.item(0).getChildNodes().item(0).getNodeValue());
+									receta.addLast("paso"+min,elementos.item(0).getChildNodes().item(0).getNodeValue());
 									min++;
 								}
 								Platillo plato=new Platillo(nombre,categoria,ingredientes,receta,info,precio,tiempo);
@@ -411,12 +566,6 @@ public class BaseXML {
 		return basedatosinv;
 	}
 	
-	public static void main(String[] args){
-		BaseXML xml=new BaseXML();
-		ListaDoble<String,Platillo> m=xml.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml");
-		ListaDoble<String,String> n=xml.cargarInventario("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosInventario.xml");
-	}
-	
 	public void escrituraXMLMenu(Menu menu){
 		  try {
 
@@ -427,8 +576,6 @@ public class BaseXML {
 			Document doc = docBuilder.newDocument();
 			Element rootElement = doc.createElement("menu");
 			doc.appendChild(rootElement);
-			
-			
 			
 			NodoDoble<String,Platillo>temp=menu.recetas.head;
 			while(temp!=null){
@@ -500,8 +647,6 @@ public class BaseXML {
 		  }
 	}
 
-	
-	
 	
 	public void escrituraXMLInventario(Inventario inventario){
 		try {
@@ -642,4 +787,66 @@ public class BaseXML {
 		
 	}
 
+	public ListaDoble<String,String> cargarChat(String direccion){
+		ListaDoble<String,String> mensajes=new ListaDoble<String,String>();
+		try {
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			File file=new File(direccion);
+			if (file.exists()){
+				Document doc = db.parse(file);
+				Element docEle = doc.getDocumentElement();
+					NodeList informacion = docEle.getElementsByTagName("chat");
+					if (informacion != null && informacion.getLength() > 0) {
+						for (int i = 0; i < informacion.getLength(); i++) {
+							Node nodo = informacion.item(i);
+							if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+								Element e = (Element) nodo;
+								NodeList elementos = e.getElementsByTagName("dialogo");	
+								String nombre=elementos.item(0).getChildNodes().item(0).getNodeValue();
+								mensajes.addLast(nombre, "");	
+								
+							}
+						}
+					}
+			}else{
+					System.exit(1);
+				}		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mensajes;
+	}
+
+	public void escrituraXMLChat(ListaDoble<String,String> chat){
+		try{
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+			// root elements
+			Document doc = docBuilder.newDocument();
+			Element rootElement = doc.createElement("mensajes");
+			doc.appendChild(rootElement);
+			
+			Element oro = doc.createElement("chat");
+			rootElement.appendChild(oro);
+			
+			for(NodoDoble<String,String> temp=chat.head;temp!=null;temp=temp.next){
+				Element Generico=doc.createElement("dialogo");
+				Generico.appendChild(doc.createTextNode(temp.llave));
+				oro.appendChild(Generico);
+			}
+			
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult resulto = new StreamResult(new File("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/Mensajes.xml"));
+			transformer.transform(source, resulto);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
 }

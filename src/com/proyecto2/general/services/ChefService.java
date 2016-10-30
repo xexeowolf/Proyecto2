@@ -26,11 +26,13 @@ import com.proyecto2.general.resources.Platillo;
 public class ChefService {
 	
 	BaseXML base=new BaseXML();
-	ListaDoble<String,String> nombres=base.cargarChefs(new ListaDoble<String,String>(),"/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosChefs.xml" );
+	ListaDoble<String,String> nombres=base.cargarChefs(new ListaDoble<String,String>(),"/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosChefs.xml");
+	ListaDoble<String,String> chat=base.cargarChat("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/Mensajes.xml");
 	ListaDoble<String,ColaPrioridad<String,String>> ordenes=base.cargarMatriz(nombres);
 	Inventario inventario=new Inventario(base.cargarInventario("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosInventario.xml"));
 	Menu menu=new Menu(base.cargarMenu("/home/alfredo/Inicio/Documentos/Eclipse_Keppler/Proyecto2/WebContent/WEB-INF/BaseDatosMenu.xml"));
 	
+	ListaDoble<Integer,ListaDoble<String,String>>progresos=base.cargarProgresos();
 	
 	public ChefService() {
 		 
@@ -72,19 +74,62 @@ public class ChefService {
 		}
 	}
 	
+	@POST
+	@Path("/agregar")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void agregarChef(String chef){
+		System.out.println("llego nombre");
+		nombres.addFirst(chef, "");
+		base.escrituraXMLChefs(nombres);
+		base.escrituraXMLOrdenInicial(nombres);
+	}
 	
+	@POST
+	@Path("/eliminar")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void eliminarChef(String chef){
+		NodoDoble<String,String> puntero=Busqueda.busquedaBinariaDL(nombres, chef, 0, nombres.size);
+		if(puntero!=null){
+			if(puntero==nombres.head){
+				nombres.deleteFirst();
+			}else if(puntero==nombres.tail){
+				nombres.deleteLast();
+			}else{
+				nombres.delete(puntero);
+			}
+			base.escrituraXMLChefs(nombres);
+		}
+	}
+
 	@GET
-	@Path("/tarea")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String obtenerTarea(){
-		return nombres.head.llave;
+	@Path("/chat/obtener")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String obtenerChat(){
+		JSONObject objeto=new JSONObject();
+		try {
+			objeto.put("atributo", chat.head.llave);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JSONArray arr=new JSONArray();
+		arr.put(objeto);
+		return arr.toString();
+	}
+	
+	@POST
+	@Path("/chat/agregar")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void agregarChat(String mensaje){
+		chat.head.llave=chat.head.llave+"jk"+mensaje;
+		base.escrituraXMLChat(chat);
 		
 	}
 	
 	@POST
 	@Path("/orden")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public String obtenerOrden(String nombre){
 		NodoDoble<String,ColaPrioridad<String,String>> temp;
 		temp=Busqueda.busquedaBinariaDL(ordenes, nombre, 0, ordenes.size);
@@ -93,7 +138,6 @@ public class ChefService {
 		if(temp!=null){
 			try {
 				if(temp.valor.head.valor.length()!=1){
-				System.out.println(temp.valor.head.valor);
 				JSONObject objeto=new JSONObject();
 				objeto.put("atributo",temp.valor.head.llave);
 				arrT.put(objeto);
@@ -101,8 +145,11 @@ public class ChefService {
 				objeto.put("atributo",temp.valor.head.valor);
 				arrT.put(objeto);
 				if(temp.valor.head.next==null){
-					temp.valor.head.valor="1";
-					temp.valor.head.llave="1";
+					temp.valor.head.valor="a";
+					temp.valor.head.llave="a";
+				}else{
+					temp.valor.head=temp.valor.head.next;
+					temp.valor.size--;
 				}
 				base.escrituraXMLOrdenes(ordenes);
 				}
@@ -120,6 +167,54 @@ public class ChefService {
 		
 	}
 	
+	@POST
+	@Path("/orden/fin")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void terminarOrden(String nombre){
+		NodoDoble<Integer,ListaDoble<String,String>> temp=progresos.head;
+		char[]minus=nombre.toCharArray();
+		while(temp!=null){
+			for(NodoDoble<String,String>punt=temp.valor.head;punt!=null;punt=punt.next){
+				char[]mayus=punt.llave.toCharArray();
+				int max;
+				int cont=0;
+				if(minus.length<mayus.length){
+					max=minus.length;
+				}else{
+					max=mayus.length;
+				}
+				for(int r=0;r<max;r++){
+					if(minus[r]==mayus[r]){
+						cont++;
+					}
+				}
+				if(cont==nombre.length()){
+					if(punt==temp.valor.head){
+						temp.valor.deleteFirst();
+					}else if(punt==temp.valor.tail){
+						temp.valor.deleteLast();
+					}else{
+						temp.valor.delete(punt);
+					}
+					if(temp.valor.head==null){
+						
+						temp.valor.addFirst("a", "");
+						/*if(temp==progresos.head){
+							progresos.deleteFirst();
+						}else if(temp==progresos.tail){
+							progresos.deleteLast();
+						}else{
+							progresos.delete(temp);
+						}*/
+					}
+					break;
+				}
+			}
+			
+			temp=temp.next;
+		}
+		base.escrituraXMLprogreso(progresos);
+	}
 	
 	@POST
 	@Path("/menu/agregar")

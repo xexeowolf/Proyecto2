@@ -1,123 +1,511 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu>
-	<platillo>
-		<nombre>SopaAzteca</nombre>
-		<categoria>2</categoria>
-		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
-		<precio>1200</precio>
-		<tiempo>60</tiempo>
-		<numero>2</numero>
-		<ingrediente1>tomates</ingrediente1>
-		<cantidad1>6</cantidad1>
-		<ingrediente2>aguacates</ingrediente2>
-		<cantidad2>3</cantidad2>	
-		<pasos>7</pasos>
-		<paso1>cocinar los tomates</paso1>
-		<paso2>pelar los aguacates</paso2>
-		<paso3>salpimentar</paso3>
-		<paso4>cortar los aguacates</paso4>
-		<paso5>unir todo en la olla</paso5>
-		<paso6>dejar hervir por 10 min</paso6>
-		<paso7>servir y decorar al gusto</paso7>
-	</platillo>
-	<platillo>
-		<nombre>SopaNegra</nombre>
-		<categoria>2</categoria>
-		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
-		<precio>1200</precio>
-		<tiempo>60</tiempo>
-		<numero>2</numero>
-		<ingrediente1>tomates</ingrediente1>
-		<cantidad1>6</cantidad1>
-		<ingrediente2>aguacates</ingrediente2>
-		<cantidad2>3</cantidad2>	
-		<pasos>7</pasos>
-		<paso1>cocinar los tomates</paso1>
-		<paso2>pelar los aguacates</paso2>
-		<paso3>salpimentar</paso3>
-		<paso4>cortar los aguacates</paso4>
-		<paso5>unir todo en la olla</paso5>
-		<paso6>dejar hervir por 10 min</paso6>
-		<paso7>servir y decorar al gusto</paso7>
-	</platillo>
-	<platillo>
-		<nombre>EnsaladaRepollo</nombre>
-		<categoria>1</categoria>
-		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
-		<precio>1200</precio>
-		<tiempo>60</tiempo>
-		<numero>2</numero>
-		<ingrediente1>tomates</ingrediente1>
-		<cantidad1>6</cantidad1>
-		<ingrediente2>aguacates</ingrediente2>
-		<cantidad2>3</cantidad2>	
-		<pasos>7</pasos>
-		<paso1>cocinar los tomates</paso1>
-		<paso2>pelar los aguacates</paso2>
-		<paso3>salpimentar</paso3>
-		<paso4>cortar los aguacates</paso4>
-		<paso5>unir todo en la olla</paso5>
-		<paso6>dejar hervir por 10 min</paso6>
-		<paso7>servir y decorar al gusto</paso7>
-	</platillo>
-	<platillo>
-		<nombre>PescadoAsado</nombre>
-		<categoria>3</categoria>
-		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
-		<precio>1200</precio>
-		<tiempo>60</tiempo>
-		<numero>2</numero>
-		<ingrediente1>tomates</ingrediente1>
-		<cantidad1>6</cantidad1>
-		<ingrediente2>aguacates</ingrediente2>
-		<cantidad2>3</cantidad2>	
-		<pasos>7</pasos>
-		<paso1>cocinar los tomates</paso1>
-		<paso2>pelar los aguacates</paso2>
-		<paso3>salpimentar</paso3>
-		<paso4>cortar los aguacates</paso4>
-		<paso5>unir todo en la olla</paso5>
-		<paso6>dejar hervir por 10 min</paso6>
-		<paso7>servir y decorar al gusto</paso7>
-	</platillo>
-	<platillo>
-		<nombre>BatidoFresa</nombre>
-		<categoria>4</categoria>
-		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
-		<precio>1200</precio>
-		<tiempo>60</tiempo>
-		<numero>2</numero>
-		<ingrediente1>tomates</ingrediente1>
-		<cantidad1>6</cantidad1>
-		<ingrediente2>aguacates</ingrediente2>
-		<cantidad2>3</cantidad2>	
-		<pasos>7</pasos>
-		<paso1>cocinar los tomates</paso1>
-		<paso2>pelar los aguacates</paso2>
-		<paso3>salpimentar</paso3>
-		<paso4>cortar los aguacates</paso4>
-		<paso5>unir todo en la olla</paso5>
-		<paso6>dejar hervir por 10 min</paso6>
-		<paso7>servir y decorar al gusto</paso7>
-	</platillo>
-	<platillo>
-		<nombre>CheeseCake</nombre>
-		<categoria>5</categoria>
-		<informacion>60kcal,fuente de calcio,potasio y aceites esenciales</informacion>
-		<precio>1200</precio>
-		<tiempo>60</tiempo>
-		<numero>2</numero>
-		<ingrediente1>tomates</ingrediente1>
-		<cantidad1>6</cantidad1>
-		<ingrediente2>aguacates</ingrediente2>
-		<cantidad2>3</cantidad2>	
-		<pasos>7</pasos>
-		<paso1>cocinar los tomates</paso1>
-		<paso2>pelar los aguacates</paso2>
-		<paso3>salpimentar</paso3>
-		<paso4>cortar los aguacates</paso4>
-		<paso5>unir todo en la olla</paso5>
-		<paso6>dejar hervir por 10 min</paso6>
-		<paso7>servir y decorar al gusto</paso7>
-	</platillo>
+	
+<platillo>
+        <nombre>CremaDeCalabaza</nombre>
+        <categoria>2</categoria>
+        <informacion>Deliciosa opción para aquellas personas veganas, una crema sin nata hecha con calabaza</informacion>
+        <precio>1100</precio>
+        <tiempo>50</tiempo>
+        <numero>6</numero>
+        <ingrediente1>Calabaza</ingrediente1>
+        <ingrediente2>Jengibre</ingrediente2>
+        <ingrediente3>Apio</ingrediente3>
+        <ingrediente4>Cebolla </ingrediente4>   
+        <ingrediente5>Zanahoria</ingrediente5>
+        <ingrediente6>Coco</ingrediente6>   
+        <pasos>8</pasos>
+        <paso1>Pela la calabaza y corta en cuadros medianos. Llévalos a una olla con suficiente agua para que los cubra y cocínalos a fuego medio hasta que ablanden.</paso1>
+        <paso2>Aparte, calienta otra olla a fuego medio con un poco de aceite de oliva y saltea la cebolla blanca en trozos.</paso2>
+        <paso3>Una vez la cebolla tome un color transparente, agrega el apio y la zanahoria en trozos para que éstos se salteen un poco.</paso3>
+        <paso4>A continuación, añade agua hasta cubrir las verduras y añade tomillo seco, sal y pimienta negra al gusto. Deja cocinar durante 15 - 20 minutos.</paso4>
+        <paso5>Añade en un bol los trozos de calabaza y la sopa de vegetales base de nuestra crema vegana y deja enfriar a temperatura ambiente. Una vez frío procesa hasta conseguir la consistencia deseada.</paso5>
+        <paso6>Lleva nuestra receta vegana nuevamente a una olla a fuego lento. Si deseas puedes pasar por un colador para que tengas una crema fina, en lo personal recomiendo no hacerlo pues se retira toda la fibra de nuestra crema de calabaza.</paso6>
+        <paso7>Agrega el jengibre en polvo, la canela.</paso7>
+        <paso8>Una vez listo añade la crema o leche de coco y deja conservar durante unos minutos más a fuego lento y estamos listos para servir</paso8>
+    </platillo>
+
+
+<platillo>
+        <nombre>CremaDeGuisantes</nombre>
+        <categoria>2</categoria>
+        <informacion>En esta receta traemos una opción muy saludable y deliciosa, se trata de una crema de guisantes con pollo desmechado. Esta receta es para todas aquellas personas que consumen todo tipo de alimentos y buscan platos que recojan varios sabores en uno mismo. Perfecto para embarazadas.</informacion>
+        <precio>1400</precio>
+        <tiempo>30</tiempo>
+        <numero>5</numero>
+        <ingrediente1>Guisantes</ingrediente1>
+        <ingrediente2>Pechuga de pollo</ingrediente2>
+        <ingrediente3>Patatas</ingrediente3>
+        <ingrediente4>Cebolla</ingrediente4>   
+        <ingrediente5>Leche</ingrediente5>
+        <pasos>8</pasos>
+        <paso1>Lleva una olla con suficiente agua a fuego medio. Cuando el agua esté a punto de ebullición, añade los guisantes y cocínalos hasta que estén en el punto de cocción deseado. Retíralos del agua y resérvalos.</paso1>
+        <paso2>Corta las patatas en cuadros medianos y cocínalos hasta que estén blandos.</paso2>
+        <paso3>Lleva una olla honda a fuego medio y adiciona las cebollas blancas con un poco de aceite.</paso3>
+        <paso4>Añade las patatas y los guisantes que teníamos reservados en los pasos anteriores a una olla con el caldo de pollo, deja conservar a fuego medio durante diez minutos aproximadamente.</paso4>
+        <paso5>Retira los ingredientes de la sopa a un bol para que podamos licuar o procesar con un mixer. Así pues, procesa los ingredientes hasta que se integren en su totalidad.</paso5>
+        <paso6>Lleva nuevamente los ingredientes procesados a la olla y deja cocinar unos 10-15 minutos más. Luego, añade a la crema de guisantes la leche, el tomillo, pasta de ajo, sal y pimienta al gusto.</paso6>
+        <paso7>Coloca un poco de pollo desmenuzado en el fondo de cada uno de los platos donde vamos a servir nuestra crema saludable.</paso7>
+        <paso8>Sirve crema de guisantes sobre el pollo adicionando un poco de guisantes encima de la preparación.</paso8>
+    </platillo>
+
+
+<platillo>
+        <nombre>SopaDeSetas</nombre>
+        <categoria>2</categoria>
+        <informacion>Esta versión de sopa de setas con queso no lleva nata líquida, como pasa con muchas otras recetas, por lo que es bastante ligerita.</informacion>
+        <precio>1500</precio>
+        <tiempo>25</tiempo>
+        <numero>4</numero>
+        <ingrediente1>Setas</ingrediente1>
+        <ingrediente2>Champiñón</ingrediente2>
+        <ingrediente3>Cebolla</ingrediente3>
+        <ingrediente4>Queso rallado</ingrediente4> 
+        <pasos>6</pasos>
+        <paso1>Empezamos la sopa de setas y queso pochando la cebolla, cortada en juliana, en una sartén con un poco de aceite de oliva.</paso1>
+        <paso2>Pasados unos minutos, añadimos las setas y los champiñones, previamente lavados. Salpimentamos y lo dejamos a fuego suave durante un mínimo de 10 minutos.</paso2>
+        <paso3>Ahora llevamos la cebolla y las setas al vaso de la licuadora y los convertimos en una crema de champiñones. Añadiremos un poco de caldo para ayudar a licuarlo bien.</paso3>
+        <paso4>Pasamos la crema de setas a una olla, añadimos el resto del caldo (en total, yo he utilizado tres cuartos de litro, aunque si prefieres puedes poner el litro entero) y un vaso de vino blanco. Lo llevamos a ebullición y dejamos que se cueza a fuego suave durante 15-20 minutos.</paso4>
+        <paso5>Cinco minutos antes de servir la sopa de setas, añadimos el queso rallado y dejamos que se siga cociendo para que el queso se funda.</paso5>
+        <paso6>Servimos la sopa de champiñones con queso bien caliente, y agregamos una cucharadita de queso rallado al plato, así como un poco de pimienta negra. </paso6>
+    </platillo>
+
+
+<platillo>
+        <nombre>SopaDeQuinoa</nombre>
+        <categoria>2</categoria>
+        <informacion>De bastante valor nutricional,bajo en calorias, recomendada para todas las edades</informacion>
+        <precio>800</precio>
+        <tiempo>40</tiempo>
+        <numero>4</numero>
+        <ingrediente1>Quinoa</ingrediente1>
+        <ingrediente2>Habichuela</ingrediente2>
+        <ingrediente3>Cebolla</ingrediente3>
+        <ingrediente4>Zanahoria</ingrediente4> 
+        <pasos>4</pasos>
+        <paso1>Lavar nuestra cebolla y cortarla en cuadros lo más pequeños posibles, llevar aun sartén con un poco de aceite y sofreír.</paso1>
+        <paso2>Mientras tanto llevar una olla con agua a fuego alto, una vez etsa hierva, agregar nuestras verduras (habichuelas o judías y zanahoria) con un poco de sal, cocinar hasta que estén blandas o al dente durante unos 10 minutos aproximadamente.</paso2>
+        <paso3>Una vez estén nuestras verduras retirarlas del agua y reservar un poco de ese caldo donde se cocinaron mas o menos 2 tazas de esa agua el resto desecharla.En una olla mas pequeña adicionar nuestras verduras, sal, pimienta y la cebolla que sofreímos anteriormente.Dejar conservar durante 5 a 10 minutos máximo a fuego bajo y agregar la quinoa cocinada.</paso3>
+        <paso4>Servir nuestra caldo o sopa de quinoa decorando con un poco de tomillo fresco encima, esto va a dar un sabor realmente especial a la preparación.</paso4>
+    </platillo>
+
+
+<platillo>
+        <nombre>SopaAzteca</nombre>
+        <categoria>2</categoria>
+        <informacion>La sopa azteca tiene un punto de picante que la hace todavía más sabrosa. </informacion>
+        <precio>900</precio>
+        <tiempo>30</tiempo>
+        <numero>5</numero>
+        <ingrediente1>Jitomates</ingrediente1>
+        <ingrediente2>Chiles rojos</ingrediente2> 
+        <ingrediente3>Cebolla</ingrediente3>
+        <ingrediente4>Aguacate</ingrediente4> 
+        <ingrediente5>Tortillas</ingrediente5>
+        <pasos>5</pasos>
+        <paso1>Para preparar la sopa azteca coloca los jitomates en una cacerola, cúbrelos con agua y deja que hiervan. Cocina a fuego medio hasta que los jitomates estén suaves, pero no deshaciéndose, entre 5 y 8 minutos. Lícualos junto con la cebolla y los ajos.</paso1>
+        <paso2>Calienta una cucharada de aceite en una olla a fuego medio y vierte dentro de ella la mezcla anterior para continuar con la preparación de la sopa mexicana. Cocina hasta que se sazone y se reseque.</paso2>
+        <paso3>Agrega el caldo de pollo, epazote y sal, y deja que hierva. Cuando alcance el punto de ebullición, reduce la flama y hierve a fuego suave durante 3 minutos más.</paso3>
+        <paso4>Mientras el punto anterior se desarrolla y la sopa azteca se va haciendo, calienta una cucharada de aceite en una sartén pequeña a fuego medio. Dora los chiles rápidamente pero cuidando que no se quemen. Desbarátalos con tus manos.</paso4>
+        <paso5>Sirve la sopa azteca caliente y adorna con chile, tiritas de tortilla de maíz fritas, aguacate troceado o con una ensalada de aguacate, queso y crema. </paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>EnsaladaDeAceitunas</nombre>
+        <categoria>1</categoria>
+        <informacion>Deliciosa ensalada de aceitunas</informacion>
+        <precio>700</precio>
+        <tiempo>15</tiempo>
+        <numero>4</numero>
+        <ingrediente1>Aceitunas negras</ingrediente1>
+        <ingrediente2>Aceitunas verde</ingrediente2> 
+        <ingrediente3>Limón</ingrediente3>
+        <ingrediente4>Cebolla</ingrediente4> 
+        <pasos>3</pasos>
+        <paso1>En un bol mezclar la cebolla blanca con el pimiento rojo cortado en tiras delgadas.</paso1>
+        <paso2>Agregar las aceitunas negras y las aceitunas verdes, con el zumo de limón, el aceite de oliva, sal y pimienta.</paso2>
+        <paso3>Servir la ensalada de aceitunas con galletas saladas.</paso3>
+    </platillo>  
+
+
+<platillo>
+        <nombre>EnsaladaPrimaveral</nombre>
+        <categoria>1</categoria>
+        <informacion>Tomates rellenos con una mezcla de garbanzos, alcachofas y patatas... una combinación que seguro te encantará. Anímate y descubre la mejor ensalada primaveral.</informacion>
+        <precio>600</precio>
+        <tiempo>20</tiempo>
+        <numero>7</numero>
+        <ingrediente1>Alcachofa</ingrediente1>
+        <ingrediente2>Limón</ingrediente2> 
+        <ingrediente3>Patata</ingrediente3>
+        <ingrediente4>Garbanzos</ingrediente4> 
+        <ingrediente5>Naranja</ingrediente5>
+        <ingrediente6>Lechuga</ingrediente6> 
+        <ingrediente7>Tomate</ingrediente7>
+        <pasos>9</pasos>
+        <paso1>Poner agua a hervir con una pizca de sal y zumo de limón y preparara aparte un bol con agua fría y cubos de hielo. Cortar las alcachofas en trozos de entre 3-4 milímetros y pasar 1 minuto por el agua cuando rompa el hervor. Pasar por un colocar (reserva el agua de esta cocción) y sumergir las alcachofas en el agua fría. Este proceso tiene que ser muy rápido.</paso1>
+        <paso2>Cuando las alcachofas se hayan templado, escurrir del agua fría y dejar sobre papel absorbente. Reservar.</paso2>
+        <paso3>Recuperar el agua de cocción de las alcachofas, agregar la margarina y cocer las patatas, previamente cortadas en cubos, hasta que estén tiernas.</paso3>
+        <paso4>A continuación, mezclar las patatas con las alcachofas aliñando con una pizca de sal, pimienta y mejorana.</paso4>
+        <paso5>Para preparar los tomates rellenos, lo primero es elaborar un puré con los garbanzos cocidos, previamente lavados y escurridos. Es recomendable usar un pasapurés para desechar la piel de los garbanzos.</paso5>
+        <paso6>Mezcla el puré con la mostaza, la ralladura y el zumo de naranja, los copos de levadura y el aceite y la salsa Maggi. Mezclar hasta conseguir un puré suave y uniforme. Si es necesario, aligerar la preparación con un poco de leche vegetal. Salpimentar.</paso6>
+        <paso7>Para rellenar los tomates, hacer un corte profundo en forma de cruz (con los tomates boca abajo) y separar los gajos ligeramente para hacer espacio en el centro. Coloca el relleno de garbanzos dentro de cada tomate con la ayuda de una manga pastelera.</paso7>
+        <paso8>Para servir la ensalada completa coloca una base de lechuga en el plato, los tomates rellenos y en el centro la mezcla de patata y alcachofa.</paso8>
+        <paso9>Termina de decorar la ensalada primaveral añadiendo las aceitunas el perejil y un chorrito más de aceite.</paso9>
+    </platillo>
+
+
+<platillo>
+        <nombre>EnsaladaCaprese</nombre>
+<categoria>1</categoria>
+        <informacion>Riquísima ensalada caprese, plato de origen italia. Si tenemos que describir esta ensalada solo podemos hablar de sus virtudes, es fresca, vistosa, súper sana y sobre todo deliciosa.</informacion>
+        <precio>1100</precio>
+        <tiempo>15</tiempo>
+        <numero>2</numero>
+        <ingrediente1>Tomates</ingrediente1>
+        <ingrediente2>Mozzarella </ingrediente2> 
+        <pasos>4</pasos>
+        <paso1>Para esta ensalada italiana les aconsejo elegir tomates perita porque no expulsan tanto jugo. Cortamos los tomates en rodajas, ni muy finas ni muy gruesas, y reservamos.</paso1>
+        <paso2>Tomamos el queso mozzarella y lo cartamos en rodajas similares a las del tomate.</paso2>
+        <paso3>Por otro lado, para sazonar esta exquisita ensalada caprese, realizamos una preparación con unas hojitas de albahaca fresca picada, aceite de oliva virgen extra, sal y pimienta negra recién molida.</paso3>
+        <paso4>Por último, para la presentación de la ensalada, tomamos un plato o una fuente plana y vamos acomodando los ingredientes intercalando una rodaja de tomate, una de mozzarella, una hoja de albahaca fresca y así sucesivamente. Aderezamos con la preparación realizada con anterioridad y espolvoreamos con un toque de pimienta en grano recién molida para completar la decoración de esta deliciosa e irresistible ensalada caprese.</paso4>
+    </platillo>
+
+
+<platillo>
+        <nombre>EnsaladaDeAtún</nombre>
+        <categoria>1</categoria>
+        <informacion>Como sabes, la coliflor es una fuente natural de fibra que cuenta con pocas calorías y muchos beneficios. Por otra parte, el atún y el huevo nos aportan proteínas y Omega 3.</informacion>
+        <precio>800</precio>
+        <tiempo>15</tiempo>
+        <numero>5</numero>
+        <ingrediente1>Coliflor</ingrediente1>
+        <ingrediente2>Atún</ingrediente2> 
+        <ingrediente3>Huevo</ingrediente3>
+        <ingrediente4>Tomate</ingrediente4> 
+        <ingrediente5>Aceitunas negras</ingrediente5>
+        <pasos>5</pasos>
+        <paso1>Para comenzar, cocemos la coliflor en abundante agua con un poco de sal durante 10 minutos. Una vez cocida, la escurrimos, dejamos que se enfríe y la separamos en arbolitos.</paso1>
+        <paso2>Por otra parte, cocemos el huevo en agua hirviendo durante 10 minutos. Una vez cocido, lo pasamos por agua bien fría para que la cáscara se pueda quitar con mayor facilidad. Pelamos el huevo y troceamos la cebolleta en cuadraditos pequeños.</paso2>
+        <paso3>Agregamos la cebolleta y el atún en conserva a la coliflor que ya tenemos en una ensaladera. Recuerda que es importante quitar el exceso de aceite del atún en conserva.</paso3>
+        <paso4>Trocemos el huevo cocido y lo incorporamos a la ensalada de coliflor y atún. El huevo es rico en proteínas y omega 3, esencial para el crecimiento de los niños.</paso4>
+        <paso5>Por último, añadimos el tomate picado pequeño y las aceitunas negras. Aderezamos con un poco de sal, vinagre y aceite de oliva.</paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>EnsaladaDeArroz</nombre>
+        <categoria>1</categoria>
+        <informacion>Una fresca ensalada de arroz, ligera y llena de color.</informacion>
+        <precio>900</precio>
+        <tiempo>15</tiempo>
+        <numero>5</numero>
+        <ingrediente1>Arroz</ingrediente1>
+        <ingrediente2>Aguacate</ingrediente2> 
+        <ingrediente3>Maíz dulce</ingrediente3>
+        <ingrediente4>Cangrejo</ingrediente4> 
+        <ingrediente5>Atún</ingrediente5>
+        <pasos>5</pasos>
+        <paso1>Con todo ya en la mesa de trabajo, comenzaremos por picar finamente las barritas de cangrejo. La cantidad siempre al gusto, al igual que el tipo de corte. Yo prefiero cortarlo muy fino pero si quieres puedes dejarlo en trozos mas grandes.</paso1>
+        <paso2>Seguidamente hacemos lo mismo con el aguacate y el huevo cocido, pero en este caso si recomiendo cortar estos ingredientes en trozos medianos. Tal como se ve en la imagen.</paso2>
+        <paso3>Para empezar a armar la ensalada
+y que todos los ingredientes queden repartidos de forma elegante, coloca el arroz en un bol y mezcla primero con el atún previamente escurrido y los palitos de cangrejo.</paso3>
+        <paso4>A continuación añade el maíz y los trozos de huevo duro. Mezcla estos ingredientes revolviendo suavemente para evitar que el huevos se rompa. Aprovecha y sazona con una pizca de sal y pimienta.</paso4>
+        <paso5>Divide la ensalada de arroz con atún en los platos y coloca los trozos de aguacate a un lado.</paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>PastaConSalmonAhumado</nombre>
+        <categoria>3</categoria>
+        <informacion>cuenta con el aporte de omega 3 proporcionado por el salmón, tan beneficioso para mantener la salud del sistema circulatorio en perfectas condiciones. Así mismo, este pescado tan popular es rico en vitaminas del grupo B, A y D, y mineras esenciales como el magnesio.</informacion>
+        <precio>1700</precio>
+        <tiempo>35</tiempo>
+        <numero>4</numero>
+        <ingrediente1>Macarrones</ingrediente1>
+        <ingrediente2>Salmón ahumado</ingrediente2> 
+        <ingrediente3>Nata</ingrediente3>
+        <ingrediente4>Mantequilla</ingrediente4> 
+        <pasos>5</pasos>
+        <paso1>Picamos el puerro, cortamos en láminas el champiñón y el salmón ahumado en tiras. Si no tienes un champiñón grande, puedes utilizar dos o tres pequeños.</paso1>
+        <paso2>Ponemos los macarrones a hervir con agua y un chorrito de aceite. Cuando estén listos, los escurrimos y reservamos mientras preparamos la salsa de salmón ahumado. Cogemos una sartén honda, añadimos un chorro de aceite, la cucharada de mantequilla y la ponemos a calentar a fuego alto. Cuando se haya fundido la mantequilla, bajamos la temperatura y sofreímos el puerro.</paso2>
+        <paso3>Una vez que observemos que el puerro empieza a tomar color, añadimos el salmón ahumado y el champiñón laminado. Salteamos todo junto y removemos con una cuchara de madera o espátula para evitar que los ingredientes de la salsa para pasta se quemen. En este punto, añadimos la pimienta y tomillo al gusto.</paso3>
+        <paso4>Cuando el salmón y el champiñón hayan cambiado de color, querrá decir que están listos y podemos proceder a verter la nata o crema de leche para finalizar la salsa blanca y, con ella, el plato de pasta con salmón ahumado.</paso4>
+        <paso5>Cocinamos la salsa durante un par de minutos y agregamos los macarrones escurridos. Removemos bien para que la pasta se integre con el salmón ahumado, las láminas de champiñón, el puerro y la nata, y retiramos la sartén del fuego.</paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>PastaAmatriciana</nombre>
+        <categoria>3</categoria>
+        <informacion>Esta receta italiana tradicional de pasta a la amatriciana está hecha a base de salsa de tomate y una especie de tocino italiano</informacion>
+        <precio>1100</precio>
+        <tiempo>20</tiempo>
+        <numero>5</numero>
+        <ingrediente1>Pasta</ingrediente1>
+        <ingrediente2>Cebolla</ingrediente2> 
+        <ingrediente3>Tomate</ingrediente3>
+        <ingrediente4>Queso parmesano</ingrediente4> 
+        <ingrediente5>Guanciale</ingrediente5> 
+        <pasos>5</pasos>
+        <paso1>Sofreímos el guanciale o bacon en una sartén para empezar a preparar el sofrito de la pasta a la amatriciana.</paso1>
+        <paso2>A continuación añadimos la cebolla cortada en juliana, y lo dejamos unos minutos hasta que coja color.</paso2>
+        <paso3>En una olla ponemos a cocer la pasta en agua hirviendo con sal, y mientras añadimos la salsa de tomate a la sartén de la cebolla y el guanciale.</paso3>
+        <paso4>Pasado el tiempo de cocción de la pasta, el exceso de líquido de la salsa de tomate se habrá evaporado. Cuando la pasta esté cocida, la escurrimos y la añadimos a la sartén, con el fuego aún encendido mientras lo mezclamos. </paso4>
+        <paso5>Espolvorea un poco de queso parmesano rallado por encima de la pasta a la amatriciana y sírvela con una copa de vino tinto.</paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>MilanesaDeCarne</nombre>
+        <categoria>3</categoria>
+        <informacion>Su delicioso sabor ha hecho que se extienda por todo el mundo y hoy día forma parte del recetario personal de la mayoría de hogares.</informacion>
+        <precio>1200</precio>
+        <tiempo>30</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Huevos</ingrediente1>
+        <ingrediente2>Filetes</ingrediente2> 
+        <ingrediente3>Pan</ingrediente3>
+        <pasos>4</pasos>
+        <paso1>Lo primero que debes hacer para realizar las milanesas es sazonar la carne con la sal, la pimienta y el orégano al gusto. Luego, pasa cada uno de los filetes por el pan rallado (por ambos lados).</paso1>
+        <paso2>En un recipiente aparte, bate los huevos y baña los filetes de carne en ellos. Después, para fijar el rebozado, vuelve a pasarlos por el pan rallado.</paso2>
+        <paso3>Ahora, pon el aceite a calentar y, cuando esté caliente, fríe los filetes de carne rebozados a fuego medio. Deberás freírlos hasta que estén dorados por ambos lados.</paso3>
+        <paso4>Para retirar el exceso de aceite de las milanesas de carne puedes colocarlas en papel absorbente. Luego, sírvelas acompañadas de arroz blanco, puré de patatas o una ensalada verde.</paso4>
+    </platillo>
+
+
+<platillo>
+        <nombre>LasanaDeCarne</nombre>
+        <categoria>3</categoria>
+        <informacion>Sin duda la más clásica de este tipo de plato italiano que se hace a base de laminas de pasta intercaladas con distintos ingredientes y salsa bechamel.</informacion>
+        <precio>1400</precio>
+        <tiempo>40</tiempo>
+        <numero>4</numero>
+        <ingrediente1>Queso Mozzarella</ingrediente1>
+        <ingrediente2>Lasaña</ingrediente2> 
+        <ingrediente3>Leche</ingrediente3>
+        <ingrediente4>Tomate</ingrediente4> 
+        <pasos>7</pasos>
+        <paso1>Llevar una sartén a fuego medio y adicionar un poco de aceite de girasol. Sofreír la carne molida.</paso1>
+        <paso2>Aparte, en una olla honda a fuego medio, agregar la margarina y la harina. Dejar sofreír durante unos minutos.</paso2>
+        <paso3>Para adicionarle más sabor a nuestra salsa bechamel añadir a la preparación cebolla, puerro y sofreír un poco más hasta que la harina se torne en un color caramelo.</paso3>
+        <paso4>Incorporar la leche, el tomillo seco, sal y pimienta negra. Dejar conservar hasta que la salsa espese. Apagar el fuego y reservar.</paso4>
+        <paso5>Con la ayuda de un mixer adicionar un poco de agua, el vino tinto y los tomates. Licuar todo y añadir el resultado a la carne que tenemos en el paso dos. Bajar a fuego lento y dejar conservar.</paso5>
+        <paso6>En una refractaria colocar una capa de las hojas de lasaña, bañar con la bechamel y encima añadir la carne con la salsa y el queso mozzarella cortado en tiras. Repetir el proceso formando capas hasta el tope de la refractaria.</paso6>
+        <paso7>En la ultima capa espolvorear el queso parmesano.Llevar al horno a 200º C, durante unos 15-20 minutos. Es importante que el queso gratine.</paso7>
+    </platillo>
+
+
+<platillo>
+        <nombre>AsadoDeCarne</nombre>
+        <categoria>3</categoria>
+        <informacion>El asado de carne en salsa negra es un plato delicioso y rico en proteínas. Esta forma de asar la carne es típica de Venezuela, donde se conoce a este plato como asado negro y forma parte de la gastronomía tradicional del país.</informacion>
+        <precio>1500</precio>
+        <tiempo>45</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Carne de Res</ingrediente1>
+        <ingrediente2>Cebollas</ingrediente2> 
+        <ingrediente3>Salsa inglesa</ingrediente3>
+        <pasos>7</pasos>
+        <paso1>Lo primero que debemos hacer para preparar el asado negro es marinar la carne. Para ello coloca la pieza de carne en un recipiente y sazónalo con sal, pimienta, salsa inglesa o worchester y los ajos cortados finamente.</paso1>
+        <paso2>Pincha la carne por distintas partes con un cuchillo e introduce en estos cortes los clavos de olor. El corte de carne para esta receta es conocido como muchacho o redondo depende de en qué país te encuentres.</paso2>
+        <paso3>Aparte, calienta aceite en una olla junto con el azúcar y comienza a dorar la carne por todos los lados. Continua con el proceso hasta que la pieza de carne haya tomado un color oscuro sin llegar a quemarse.</paso3>
+        <paso4>Mientras se dora la carne, haz una salsa licuando la cebolla y el agua. Si no tienes licuadora puedes usar un pica todo o cualquier instrumento que similar. Cuando se haya dorado la carne incorpora esta mezcla a la olla. Prueba la cocción y rectifica la sazón si es necesario.</paso4>
+        <paso5>Tapa la olla con el asado de carne y de cocinar a fuego lento por medio hora como mínimo. Si se ves que se seca mucho puedes agregar más agua con azúcar a la preparación.</paso5>
+        <paso6>Antes que se haya consumido todo el líquido, saca la pieza de carne de la olla y córtala en rodajas más o menos gruesas , luego devuelve el asado de carne a la olla hasta que la salsa reduzca casi por completo.</paso6>
+        <paso7>Este delicioso asado de carne con salsa negra puedes acompañarlo con un sencillo arroz blanco y una ensalada verde o tajadas de plátano maduro y patatas asadas.</paso7>
+    </platillo>
+
+
+<platillo>
+        <nombre>Cafe</nombre>
+        <categoria>4</categoria>
+        <informacion>El café diplomático se caracteriza por contener un toque de licor y crema chantillí.</informacion>
+        <precio>1050</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Café oscuro</ingrediente1>
+        <ingrediente2>Huevo</ingrediente2> 
+        <ingrediente3>Crema de leche</ingrediente3>
+        <pasos>4</pasos>
+        <paso1>En un tazón, mezcla la yema de huevo con el Brandy hasta obtener una mezcla espumosa.</paso1>
+        <paso2>Para la crema chantillí, bate la crema de leche con el azúcar hasta obtener una mezcla homogénea y espesa. Reservar en la nevera.</paso2>
+        <paso3>Añade el café caliente (si se desea se puede endulzar) y bate la mezcla simultáneamente.</paso3>
+        <paso4>Sirve la mezcla caliente y cubre con la chantillí, espolvorea un poco de café en polvo sobre el café diplomático.</paso4>
+    </platillo>
+
+
+<platillo>
+        <nombre>BebidaDeJengibre</nombre>
+        <categoria>4</categoria>
+        <informacion>Bastante saludable, excelente para mejorar el dolor de garganta</informacion>
+        <precio>900</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Manzanas</ingrediente1>
+        <ingrediente2>Jengibre</ingrediente2> 
+        <ingrediente3>Limón</ingrediente3>
+        <pasos>3</pasos>
+        <paso1>Hervirlo todo durante 10 minutos a fuego lento.</paso1>
+        <paso2>Apagar el fuego y agregarle tres cuartos de taza de miel o azúcar moreno.</paso2>
+        <paso3>Dejarlo reposar hasta que se enfríe.</paso3>
+    </platillo>
+
+
+<platillo>
+        <nombre>ZumoDeGranada</nombre>
+        <categoria>4</categoria>
+        <informacion>Tanto los pomelos como las granadas son frutas con un alto nivel de antioxidantes. Gracias a sus vitaminas, ayudan a prevenir resfriados. Además, estas frutas son idóneas para las dietas de adelgazamiento.</informacion>
+        <precio>700</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Pomelo</ingrediente1>
+        <ingrediente2>Granada</ingrediente2> 
+        <ingrediente3>Naranja</ingrediente3>
+        <pasos>5</pasos>
+        <paso1>Exprimimos los pomelos y la naranja.</paso1>
+        <paso2>Agregamos el jugo en una jarra para que se mezclen los sabores de este jugo depurativo.</paso2>
+        <paso3>Exprimimos la granada. Para ello debemos apretar la fruta y girarla con movimientos lentos para no desgranarla y así sacar más jugo.</paso3>
+        <paso4>Mezclamos bien el zumo depurativo de granada y pomelo, y colamos para eliminar la pulpa.</paso4>
+        <paso5>El zumo depurativo de granada y pomelo es una bebida ideal para perder peso y nos aporta mucha energía. </paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>ZumoFrambuesas</nombre>
+<categoria>4</categoria>
+        <informacion>Si queréis que vuestros hijos tomen fruta y vitaminas sin protestar, podéis preparar multitud de batidos de fruta súper saludables y sin azúcar.</informacion>
+        <precio>900</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Sandía</ingrediente1>
+        <ingrediente2>Granada</ingrediente2> 
+        <ingrediente3>Frambuesas</ingrediente3>
+        <pasos>4</pasos>
+        <paso1>En primer lugar, quitamos la cáscara de la sandía, la troceamos y la ponemos en un vaso de batidora. Si compramos sandía sin pepitas, mejor. De lo contrario, podéis quitar las semillas con una puntilla y obtener un batido de frutas más suave.</paso1>
+        <paso2>Añadimos las frambuesas lavadas al vaso de la batidora. Las frambuesas son unos frutos silvestres con origen en Grecia que se caracterizan por su poder antioxidante y su contenido en vitaminas A, B y C.</paso2>
+        <paso3>A continuación, agregamos la manzana pelada y cortadas en trocitos. Hemos utilizado manzana verde que le da un punto de acidez al zumo natural, pero podéis usar cualquier variedad que tengáis por casa.</paso3>
+        <paso4>Ponemos un poco de agua fría y batimos el smoothie de sandía, manzana y frambuesas hasta que no queden grumos. Si el jugo queda muy espeso, ponemos un poco más de agua.</paso4>
+    </platillo>
+
+
+<platillo>
+        <nombre>PinaColada</nombre>
+        <categoria>4</categoria>
+        <informacion>La piña colada es uno de los cócteles con ron más famosos en todos los bares del mundo</informacion>
+        <precio>1200</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Crema de coco</ingrediente1>
+        <ingrediente2>Piña</ingrediente2> 
+        <ingrediente3>Leche condensada</ingrediente3>
+        <pasos>3</pasos>
+        <paso1>Recuerda que para la mayoría de cócteles se usa como medida 1 chupito que equivale a unos 30 mililitros. Teniendo esto en cuenta, lleva a la licuadora todos los ingredientes y bate a máxima potencia.</paso1>
+        <paso2>Prueba el resultado y corrige el dulzor con la leche condensada o el nivel de alcohol echando más ron. Si quieres que la piña colada tenga más sabor a coco puedes sustituir el ron blanco por Malibu o cualquier otro ron de coco.</paso2>
+        <paso3>Sirve en una copa y puedes decorar con fruta natural.</paso3>
+    </platillo>
+
+
+<platillo>
+        <nombre>PostreDeLimon</nombre>
+        <categoria>5</categoria>
+        <informacion>Un rico postre para comer en frío</informacion>
+        <precio>600</precio>
+        <tiempo>15</tiempo>
+        <numero>4</numero>
+        <ingrediente1>Crema de leche</ingrediente1>
+        <ingrediente2>Leche condensada</ingrediente2> 
+        <ingrediente3>Limon</ingrediente3>
+        <ingrediente4>Galletas</ingrediente4>
+        <pasos>5</pasos>
+        <paso1>En un bol batir la crema de leche con la leche condensada, hasta lograr una mezcla homogénea.</paso1>
+        <paso2>Añadir el zumo del limón sin parar de batir ya que se puede cortar la preparación, notaremos que espesa un poco la mezcla y eso es lo que queremos.</paso2>
+        <paso3>En los vasos pequeños añadir una cucharadita de las galletas trituradas y acomodarla bien.</paso3>
+        <paso4>Sobre éstas agregar la mezcla de limón hasta la mitad de los vasos pequeños.</paso4>
+        <paso5>Finalmente añadir otra cucharadita de galletas y más crema de limón. Espolvorea un poco de ralladura de limón y refrigera los postres de limón.</paso5>
+    </platillo>
+
+
+<platillo>
+        <nombre>PostreDeHelado</nombre>
+        <categoria>5</categoria>
+        <informacion>Un postre exquisito, con helados y fruta caramelizada. Aprende paso a paso como preparar un plato diferente mezclando distintos sabores y texturas. Helado, fruta y bizcocho todo junto en un postre único.</informacion>
+        <precio>600</precio>
+        <tiempo>15</tiempo>
+        <numero>2</numero>
+        <ingrediente1>Helado</ingrediente1>
+        <ingrediente2>Piña</ingrediente2> 
+        <pasos>3</pasos>
+        <paso1>Ponemos bolas de helados de las que más nos gusten en una tazón. Yo he utilizado de cerezas y cerezas al kirsch.</paso1>
+        <paso2>Aparte, parte las rodajas de piña en dos y llévalas al fuego con el azúcar moreno hasta que se caramelicen.</paso2>
+        <paso3>Para montar el plato sólo tienes que decorar las bolas de helado con la piña caramelizada y los trozos de bizcocho. También puedes poner por encima un poco de sirope de vainilla y chocolate.</paso3>
+    </platillo>
+
+
+<platillo>
+        <nombre>PostreDeYogur</nombre>
+        <categoria>5</categoria>
+        <informacion>La mezcla de colores de este postre, casi podría compararse con las famosas gelatinas mosaico así que no lo dudes más y consume este rico postre que le gustará a grandes y chicos.</informacion>
+        <precio>500</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Yogur</ingrediente1>
+        <ingrediente2>Gelatina</ingrediente2> 
+        <ingrediente3>Leche condensada</ingrediente3> 
+        <pasos>9</pasos>
+        <paso1>Calentar dos tazas de agua en una olla o cazo.</paso1>
+        <paso2>Cuando el agua esté hirviendo, agrega la gelatina y mezclar muy bien para disolverla.</paso2>
+        <paso3>Servir en todos los vasos un tercio de gelatina, fíjate en al fotografía.</paso3>
+        <paso4>En un poco de agua fría agrega un sobre y medio de gelatina sin sabor, deja que se hidrate.</paso4>
+        <paso5>En una olla pon a calentar la gelatina hidratada y, cuando esté completamente líquida, agrega el yogur de fresa.</paso5>
+        <paso6>Dejar enfriar y sirve la mezcla anterior en las vasos cuando la gelatina de fresa esté completamente dura.</paso6>
+        <paso7>En un poco de agua fría agrega un sobre y medio de gelatina sin sabor, deja que se hidrate, lleva al fuego y cuando esté completamente líquida agrega la leche condensada. Coloca en una jarra y dejar enfriar.</paso7>
+        <paso8>Servir en los vasos sobre la gelatina de yogur cuando esta esté completamente dura, deja el postre en la nevera para que acabe de cuajar.</paso8>
+        <paso9>Servir y degustar los vasos de gelatina con yogur. Si quieres, puedes acompañar con nata montada.</paso9>
+    </platillo>
+
+
+<platillo>
+        <nombre>PostreDeFrutas</nombre>
+        <categoria>5</categoria>
+        <informacion>Se trata del postre ligero de mango y kiwi, ideal para cerrar una cena con algo ligero y exótico.</informacion>
+        <precio>700</precio>
+        <tiempo>15</tiempo>
+        <numero>3</numero>
+        <ingrediente1>Kiwi</ingrediente1>
+        <ingrediente2>Mango</ingrediente2> 
+        <ingrediente3>Yogur</ingrediente3> 
+        <pasos>4</pasos>
+        <paso1>Pelamos el kiwi y lo batimos en la batidora creando un puré.</paso1>
+        <paso2>Batimos el mango en la batidora una vez que lo hayamos pelado y troceado. Si no tenéis batidora también se puede cortar la fruta en cuadraditos pequeños.</paso2>
+        <paso3>Por otra parte, endulzamos el yogur con un poco de leche condensada y le añadimos un poco de menta fresca picada. Movemos bien para que tome los sabores. Si queréis eliminar calorías, podéis sustituir la leche condensada por edulcorante.</paso3>
+        <paso4>Comenzamos a montar el postre ligero en capas: en un vaso vamos alternando capas de fruta y de yogur.</paso4>
+    </platillo>
+
+
+<platillo>
+        <nombre>TresLeches</nombre>
+        <categoria>5</categoria>
+        <informacion>El pastel de tres leches es uno de los postres más populares de los países de América Latina. Ofrece la posibilidad de degustar los tres tipos de leche al mismo tiempo e integrarlos por completo en un bizcocho clásico de vainilla.</informacion>
+        <precio>1000</precio>
+        <tiempo>40</tiempo>
+        <numero>7</numero>
+        <ingrediente1>Mantequilla</ingrediente1>
+        <ingrediente2>Huevos</ingrediente2> 
+        <ingrediente3>Leche</ingrediente3> 
+        <ingrediente4>Leche condensada</ingrediente4>
+        <ingrediente5>Leche evaporada</ingrediente5> 
+        <ingrediente6>Crema de leche</ingrediente6> 
+        <ingrediente7>Limon
+</ingrediente7>
+        <pasos>7</pasos>
+        <paso1>Lo primero que debes hacer para preparar la masa del bizcocho es batir la mantequilla con el azúcar hasta obtener una crema suave. Para ello, es aconsejable que retires la mantequilla del frigorífico media hora antes de empezar. Precalienta el horno a 250ºC.</paso1>
+        <paso2>Añade los huevos de uno en uno y sin dejar de batir para integrarlos a la mezcla. Luego, incorpora la harina previamente tamizada con los polvos de hornear y sigue moviendo.</paso2>
+        <paso3>Por último, agrega la leche y la esencia de vainilla para terminar la masa del bizcocho. Viértela en un molde apto para horno y hornéalo durante media hora, o hasta que al pincharlo con un palillo salga limpio.</paso3>
+        <paso4>Cuando esté listo, retíralo del horno y, todavía caliente, pínchalo con un tenedor por todas partes para que la crema de tres leches que prepararás penetre por todos los huecos. Ahora, bate la leche condensada, la crema de leche y la leche evaporada y vierte la mezcla por todo el queque, sin sacarlo del molde.</paso4>
+        <paso5> Una vez bañado el bizcocho, es el momento de preparar el merengue mientras acaba de absorber la mezcla de tres leches. Para ello, bate las claras de huevo a punto de nieve. Cuando casi estén, incorpora el cremor tártaro sin dejar de batir. El cremor tártaro muy utilizado en el mundo de la repostería, lo que hace es que el merengue aumente su volumen y se conserve por más tiempo.</paso5>
+        <paso6> Reserva las claras, coge una olla y pon a calentar a fuego alto el agua con el azúcar. Incorpora la ralladura de limón y deja que se cocine el almíbar. Sabrás que está listo cuando al levantar la cuchara las gotas caigan muy lentamente. </paso6>
+        <paso7>Una vez listo el almíbar, agrégalo a las claras y bátelo durante seis minutos, o hasta que adquiera consistencia. Cuando tengas el merengue terminado, ya puedes cubrir el postre de tres leches con él con la ayuda de una espátula o cuchillo ancho.</paso7>
+    </platillo>
 </menu>
