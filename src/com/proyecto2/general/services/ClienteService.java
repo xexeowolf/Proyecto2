@@ -27,7 +27,6 @@ import com.proyecto2.general.resources.Platillo;
 /**
  * Clase encargada de brindar la informacion requerida del servidor por un usuario
  * @author alfredo
- *
  */
 @Path("/cliente")
 public class ClienteService {
