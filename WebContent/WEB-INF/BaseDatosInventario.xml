@@ -3,78 +3,78 @@
 	<categoria>
 		<cantidad>14</cantidad>
 		<nombre>fruta</nombre>
-		<ingrediente1>Coco</ingrediente1>
-		<ingrediente2>Jitomates</ingrediente2>
-		<ingrediente3>Aguacate</ingrediente3>
-		<ingrediente4>Limón</ingrediente4>
-		<ingrediente5>Kiwi</ingrediente5>
-		<ingrediente6>Mango</ingrediente6>
-		<ingrediente7>Pomelo</ingrediente7>
-		<ingrediente8>Granada</ingrediente8>
-		<ingrediente9>Sandia</ingrediente9>
-		<ingrediente10>Frambuesa</ingrediente10>
-		<ingrediente11>Crema de coco</ingrediente11>
-		<ingrediente12>Piña</ingrediente12>
-		<ingrediente13>Naranja</ingrediente13>
-		<ingrediente14>Manzanas</ingrediente14>
+		<ingrediente1>Sandia</ingrediente1>
+		<ingrediente2>Aguacate</ingrediente2>
+		<ingrediente3>Coco</ingrediente3>
+		<ingrediente4>Crema de coco</ingrediente4>
+		<ingrediente5>Frambuesa</ingrediente5>
+		<ingrediente6>Granada</ingrediente6>
+		<ingrediente7>Jitomates</ingrediente7>
+		<ingrediente8>Kiwi</ingrediente8>
+		<ingrediente9>Limón</ingrediente9>
+		<ingrediente10>Mango</ingrediente10>
+		<ingrediente11>Manzanas</ingrediente11>
+		<ingrediente12>Naranja</ingrediente12>
+		<ingrediente13>Piña</ingrediente13>
+		<ingrediente14>Pomelo</ingrediente14>
 	</categoria>
 	<categoria>
 		<cantidad>7</cantidad>
 		<nombre>grano</nombre>
-		<ingrediente1>Quinoa</ingrediente1>
-		<ingrediente2>Garbanzos</ingrediente2>
-		<ingrediente3>Arroz</ingrediente3>
+		<ingrediente1>Arroz</ingrediente1>
+		<ingrediente2>Cafe</ingrediente2>
+		<ingrediente3>Garbanzos</ingrediente3>
 		<ingrediente4>Guanciale</ingrediente4>
 		<ingrediente5>Macarrones</ingrediente5>
 		<ingrediente6>Pan</ingrediente6>
-		<ingrediente7>Cafe</ingrediente7>
+		<ingrediente7>Quinoa</ingrediente7>
 	</categoria>
 	<categoria>
 		<cantidad>7</cantidad>
 		<nombre>carne</nombre>
-		<ingrediente1>Pechuga de pollo</ingrediente1>
-		<ingrediente2>Atún</ingrediente2>
-		<ingrediente3>Cangrejo</ingrediente3>
-		<ingrediente4>Huevo</ingrediente4>
-		<ingrediente5>Salmon</ingrediente5>
-		<ingrediente6>Filetes</ingrediente6>
-		<ingrediente7>Carne de Res</ingrediente7>
+		<ingrediente1>Atún</ingrediente1>
+		<ingrediente2>Cangrejo</ingrediente2>
+		<ingrediente3>Carne de Res</ingrediente3>
+		<ingrediente4>Filetes</ingrediente4>
+		<ingrediente5>Huevo</ingrediente5>
+		<ingrediente6>Pechuga de pollo</ingrediente6>
+		<ingrediente7>Salmon</ingrediente7>
 	</categoria>
 	<categoria>
 		<cantidad>11</cantidad>
 		<nombre>lacteo</nombre>
-		<ingrediente1>Leche</ingrediente1>
-		<ingrediente2>Nata</ingrediente2>
-		<ingrediente3>Mantequilla</ingrediente3>
-		<ingrediente4>Mozzarella</ingrediente4>
-		<ingrediente5>Queso parmesano</ingrediente5>		
-		<ingrediente6>Queso</ingrediente6>
-		<ingrediente7>Leche condensada</ingrediente7>
-		<ingrediente8>Helado</ingrediente8>
-		<ingrediente9>Leche evaporada</ingrediente9>
-		<ingrediente10>Yogur</ingrediente10>
-		<ingrediente11>Crema de leche</ingrediente11>
+		<ingrediente1>Crema de leche</ingrediente1>
+		<ingrediente2>Helado</ingrediente2>
+		<ingrediente3>Leche</ingrediente3>
+		<ingrediente4>Leche condensada</ingrediente4>
+		<ingrediente5>Leche evaporada</ingrediente5>
+		<ingrediente6>Mantequilla</ingrediente6>
+		<ingrediente7>Mozzarella</ingrediente7>
+		<ingrediente8>Nata</ingrediente8>
+		<ingrediente9>Queso</ingrediente9>
+		<ingrediente10>Queso parmesano</ingrediente10>
+		<ingrediente11>Yogur</ingrediente11>
 	</categoria>
 	<categoria>
 		<cantidad>18</cantidad>
 		<nombre>vegetal</nombre>
-		<ingrediente1>Calabaza</ingrediente1>
-		<ingrediente2>Jengibre</ingrediente2>
-		<ingrediente3>Apio</ingrediente3>
-		<ingrediente4>Zanahoria</ingrediente4>
-		<ingrediente5>Cebolla</ingrediente5>
-		<ingrediente6>Guisantes</ingrediente6>
-		<ingrediente7>Patatas</ingrediente7>
-		<ingrediente8>Setas</ingrediente8>
-		<ingrediente9>Champiñón</ingrediente9>
+		<ingrediente1>Aceitunas negras</ingrediente1>
+		<ingrediente2>Aceitunas verdes</ingrediente2>
+		<ingrediente3>Alcachofa</ingrediente3>
+		<ingrediente4>Apio</ingrediente4>
+		<ingrediente5>Calabaza</ingrediente5>
+		<ingrediente6>Cebolla</ingrediente6>
+		<ingrediente7>Champiñón</ingrediente7>
+		<ingrediente8>Chiles rojos</ingrediente8>
+		<ingrediente9>Guisantes</ingrediente9>
 		<ingrediente10>Habichuela</ingrediente10>
-		<ingrediente11>Chiles rojos</ingrediente11>
-		<ingrediente12>Aceitunas negras</ingrediente12>
-		<ingrediente13>Aceitunas verdes</ingrediente13>
-		<ingrediente14>Alcachofa</ingrediente14>
-		<ingrediente15>Tomate</ingrediente15>
-		<ingrediente16>Jitomate</ingrediente16>
-		<ingrediente17>Lechuga</ingrediente17>
-		<ingrediente18>Maíz dulce</ingrediente18>
+		<ingrediente11>Jengibre</ingrediente11>
+		<ingrediente12>Jitomate</ingrediente12>
+		<ingrediente13>Lechuga</ingrediente13>
+		<ingrediente14>Maíz dulce</ingrediente14>
+		<ingrediente15>Patatas</ingrediente15>
+		<ingrediente16>Setas</ingrediente16>
+		<ingrediente17>Tomate</ingrediente17>
+		<ingrediente18>Zanahoria</ingrediente18>
 	</categoria>
 </inventario>

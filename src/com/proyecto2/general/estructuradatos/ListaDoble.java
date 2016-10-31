@@ -76,6 +76,12 @@ public class ListaDoble<E,T> {
 		size++;
 	}
 	
+	/**
+	 * Metodo que agrega un valor en un lugar especifico
+	 * @param punt nodo en el cual se desea almacenar la informacion
+	 * @param llave llave que representa a la informacion que se desea almacenar
+	 * @param valor informacion que se desea almacenar
+	 */
 	public void add(NodoDoble<E,T> punt,E llave,T valor){
 		NodoDoble<E,T> nuevo= new NodoDoble<E,T>(llave,valor);
 		punt.next=nuevo;
@@ -137,6 +143,10 @@ public class ListaDoble<E,T> {
 		}
 	}
 	
+	/**
+	 * Metodo que elimina un nodo de una posicion especifica.
+	 * @param puntero puntero al nodo el cual se desea eliminar
+	 */
 	public void delete(NodoDoble<E,T> puntero){
 		if(puntero.prev!=null &&puntero.next!=null){
 			puntero.prev.next=puntero.next;

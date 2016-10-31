@@ -1,27 +1,17 @@
 package com.proyecto2.general.services;
 
-import java.io.File;
+
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import com.proyecto2.general.busquedaordenamiento.Busqueda;
 import com.proyecto2.general.estructuradatos.ColaPrioridad;
@@ -32,6 +22,13 @@ import com.proyecto2.general.resources.Inventario;
 import com.proyecto2.general.resources.Menu;
 import com.proyecto2.general.resources.Platillo;
 
+
+
+/**
+ * Clase encargada de brindar la informacion requerida del servidor por un usuario
+ * @author alfredo
+ *
+ */
 @Path("/cliente")
 public class ClienteService {
 	
@@ -44,11 +41,17 @@ public class ClienteService {
 	
 	ListaDoble<Integer,ListaDoble<String,String>>progresos=base.cargarProgresos();
 	
+	
+	
+	/**
+	 * Metodo qeu agrega un nuevo progreso relacionado a una orden
+	 * @param numero numero de mesa que identifica a un cliente
+	 * @return estado de la orden
+	 */
 	@POST 
 	@Path("/progreso")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String obtenerProgreso(String numero){
-		System.out.println("Obtuvoooo");
 		int num=Integer.parseInt(numero);
 		JSONArray ar=new JSONArray();
 		JSONObject ob=new JSONObject();
@@ -61,7 +64,6 @@ public class ClienteService {
 		}
 		if(lugar!=null){
 		String cantidad;
-		System.out.println("Tamano: "+lugar.valor.size+" primero: "+lugar.valor.head.llave);
 		if(lugar.valor.head.llave.length()==1 && lugar.valor.size==1){
 			cantidad="0";
 		}else{
@@ -87,6 +89,10 @@ public class ClienteService {
 		
 	}
 	
+	/**
+	 * Metodo que recibe una orden y la distribuye en los chef activos
+	 * @param orden nombre de los platillos que se ordenaron
+	 */
 	@POST
 	@Path("/orden")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -114,8 +120,8 @@ public class ClienteService {
 				JSONArray totalOrden=new JSONArray(cat.getString(1));
 				for(int r=0;r<totalOrden.length();r++){
 					ordenesT.addLast(totalOrden.getJSONObject(r).getString("nombre"), "");
-					ordenesT.addFirst("a", "");
 				}
+				ordenesT.addFirst("a", "");
 				progresos.addLast(numeroMesa, ordenesT);
 			}
 			
@@ -128,6 +134,9 @@ public class ClienteService {
 		
 	}
 	
+	/**
+	 * Metodo que distribuye una orden segun el numero de chefs disponibles
+	 */
 	public void cargarOrden(){
 		if(jerarquia.head.llave!=0){
 			distribuirOrden(jerarquia.head.valor);
@@ -142,6 +151,12 @@ public class ClienteService {
 			
 		}
 	}
+	
+	
+	/**
+	 * Metodo qeu distribuye una serie de platillos obtenidos de un JSONArray
+	 * @param order nombres de los platillos ordenados
+	 */
 	public void distribuirOrden(String order){
 		try {
 			JSONArray arr=new JSONArray(order);
@@ -161,6 +176,11 @@ public class ClienteService {
 		
 	}
 	
+	/**
+	 * Metodo que agrega una orden a la lista de tareas de un chef
+	 * @param recipe platillo que debe preparar
+	 * @param usuario nombre de usuario del chef
+	 */
 	public void agregarOrden(String recipe,String usuario){
 		
 		ListaDoble<String,String>orden=new ListaDoble<String,String>();

@@ -5,11 +5,27 @@ import com.proyecto2.general.estructuradatos.NodoDoble;
 
 
 
+/**
+ * Clase generica que implementa la busqueda binaria sobre lista enlazadas dobles
+ * @author alfredo
+ *
+ */
 public class Busqueda{
 
+	/**
+	 *Constructor de la clase 
+	 */
 	public Busqueda() {
 	}
 	
+	/**
+	 * Metodo que realiza la busqueda binaria sobre una lista doblemente enlazada de numeros enteros
+	 * @param lista lista sobre la cual se realizara la busqueda
+	 * @param valor elemento que se desea obtener
+	 * @param min posicion inicial
+	 * @param max posicion final
+	 * @return posicion del elemento que se desea encontrar
+	 */
 	public static <T extends Comparable<T>> int busquedaBinaria(T[] lista, T valor, int min, int max) {
 		if (min < max) {
 		    int mitad = min+((max-min)/2);
@@ -29,6 +45,12 @@ public class Busqueda{
 		return -1;
 	}
 	
+	/**
+	 * Metodo que coloca un puntero sobre un nodo especifico
+	 * @param temp puntero que se desea colocar
+	 * @param pasos posicion del nodo
+	 * @return puntero ubicado en la posicion deseada
+	 */
 	public  static<T extends Comparable<T>,E>NodoDoble<T,E> ubicarPuntero(NodoDoble<T,E> temp,int pasos){
 		while(pasos!=0){
 			temp=temp.next;
@@ -38,6 +60,14 @@ public class Busqueda{
 		
 	}
 	
+	/**
+	 * Metodo que realiza la busqueda binaria sobre una lista doblemente enlazada generica
+	 * @param lista lista sobre la cual se realizara la busqueda
+	 * @param valor elemento que se desea obtener
+	 * @param min posicion inicial
+	 * @param max posicion final
+	 * @return puntero al nodo que contiene el elemento deseado
+	 */
 	public static <T extends Comparable<T>,E> NodoDoble<T,E> busquedaBinariaDL(ListaDoble<T,E> lista, T valor, int min, int max) {
 		if (min < max) {
 		    int mitad = min+((max-min)/2);
@@ -56,31 +86,6 @@ public class Busqueda{
 		} 
 		return null;
 	}
-
-public static void main(String[] args){
-	/*Integer[] lista=new Integer[6];
-	lista[0]=1;
-	lista[1]=2;
-	lista[2]=3;
-	lista[3]=4;
-	lista[4]=5;
-	lista[5]=6;*/
-	ListaDoble<Integer,Integer>lista=new ListaDoble<Integer,Integer>();
-	lista.addFirst(5,5);
-	lista.addFirst(4,4);
-	lista.addFirst(3,3);
-	lista.addFirst(2,2);
-	lista.addFirst(1,1);
-	lista.addFirst(0,0);
-	lista.imprimir();
-	int cont=0;
-	while(cont!=lista.size){
-		int num=cont+1;
-		NodoDoble<Integer,Integer> pos=Busqueda.busquedaBinariaDL(lista, cont, 0, lista.size);
-		System.out.println("El numero "+cont+" se encuentra en la posicion: "+pos.valor);
-		cont++;
-	}
-}
 }
 	
 

@@ -22,6 +22,11 @@ import com.proyecto2.general.resources.Menu;
 import com.proyecto2.general.resources.Platillo;
 
 
+/**
+ * Clase encargada de enviar datos que se requieren del servidor
+ * @author alfredo
+ *
+ */
 @Path("/chef")
 public class ChefService {
 	
@@ -34,18 +39,31 @@ public class ChefService {
 	
 	ListaDoble<Integer,ListaDoble<String,String>>progresos=base.cargarProgresos();
 	
+	/**
+	 * Constructor de la clase
+	 */
 	public ChefService() {
 		 
 	}
 	
+	/**
+	 * Metodo que escribe la informacion del inventario en un archivo XML
+	 */
 	public void escrituraXMLInventario(){
 		base.escrituraXMLInventario(inventario);
 	}
 	
+	/**
+	 * Metodo que escribe la informacion del menu en un archivo XML
+	 */
 	public void escrituraXMLMenu(){
 		base.escrituraXMLMenu(menu);
 	}
 	
+	/**
+	 * Metodo que obtiene un JSONObject y lo descompone en la informacion que se desea almacenar
+	 * @param objeto JSONObject que contiene la informacion a almacenar
+	 */
 	public void agregarAlMenu(JSONObject objeto){
 		try {
 			String nombre=(String)objeto.get("nombre");
@@ -74,6 +92,10 @@ public class ChefService {
 		}
 	}
 	
+	/**
+	 * Metodo que agregar un nombre de usuario en un archivo XML
+	 * @param chef nombre del usuario
+	 */
 	@POST
 	@Path("/agregar")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -84,6 +106,10 @@ public class ChefService {
 		base.escrituraXMLOrdenInicial(nombres);
 	}
 	
+	/**
+	 * Metodo que eliminar un nombre de usuario de un archivo XML
+	 * @param chef nombre de usuario a eliminar
+	 */
 	@POST
 	@Path("/eliminar")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -101,6 +127,10 @@ public class ChefService {
 		}
 	}
 
+	/**
+	 * Metodo que devuelve la informacion del chat
+	 * @return JSONArray con la informacion del chat
+	 */
 	@GET
 	@Path("/chat/obtener")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -117,6 +147,9 @@ public class ChefService {
 		return arr.toString();
 	}
 	
+	/**Metodo que agregar un mensaje a la base de datos del chat
+	 * @param mensaje mensaje que se desea almacenar
+	 */
 	@POST
 	@Path("/chat/agregar")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -126,6 +159,11 @@ public class ChefService {
 		
 	}
 	
+	/**
+	 * Metodo que devuelve una orden relacionada a un nombre de usuario
+	 * @param nombre nombre de usuario
+	 * @return JSONArray con la orden relacionada
+	 */
 	@POST
 	@Path("/orden")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -167,6 +205,10 @@ public class ChefService {
 		
 	}
 	
+	/**
+	 * Metodo que indica el fin de una orden
+	 * @param nombre nombre de usuario relacionada a una orden
+	 */
 	@POST
 	@Path("/orden/fin")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -196,16 +238,8 @@ public class ChefService {
 					}else{
 						temp.valor.delete(punt);
 					}
-					if(temp.valor.head==null){
-						
+					if(temp.valor.head==null && temp.valor.size==0){
 						temp.valor.addFirst("a", "");
-						/*if(temp==progresos.head){
-							progresos.deleteFirst();
-						}else if(temp==progresos.tail){
-							progresos.deleteLast();
-						}else{
-							progresos.delete(temp);
-						}*/
 					}
 					break;
 				}
@@ -216,6 +250,10 @@ public class ChefService {
 		base.escrituraXMLprogreso(progresos);
 	}
 	
+	/**
+	 * Metodo que agrega un elemento al menu
+	 * @param algo elemento que se desea almacenar
+	 */
 	@POST
 	@Path("/menu/agregar")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -237,6 +275,10 @@ public class ChefService {
 		}
 	}
 	
+	/**
+	 * Metodo que almacena un elemento en el inventario
+	 * @param name elemento que se desea almacenar
+	 */
 	@POST
 	@Path("/inventario/agregar")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -251,6 +293,10 @@ public class ChefService {
 		}
 	}
 	
+	/**
+	 * Metodo que retorna el menu
+	 * @return JSONArray que contiene la informacion del menu
+	 */
 	@GET
 	@Path("/menu")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -258,60 +304,109 @@ public class ChefService {
 		return menu.parseJSONArray().toString();
 	}
 	
+	/**
+	 * Metodo que envia la informacion de ensaladas almacenada en el menu
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/menu/ensaladas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String enviarSopas(){
+	public String enviarEnsaladas(){
 		return menu.parseEspecifico(1).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de sopas almacenada en el menu
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/menu/sopas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String enviarEnsalada(){
+	public String enviarSopas(){
 		return menu.parseEspecifico(2).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de platos fuertes almacenada en el menu
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/menu/platos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarPlatos(){
 		return menu.parseEspecifico(3).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de bebidas almacenada en el menu
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/menu/bebidas")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarBebidas(){
 		return menu.parseEspecifico(4).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de postres almacenada en el menu
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/menu/postres")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarPostres(){
 		return menu.parseEspecifico(5).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de frutas almacenada en el inventario
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/inventario/frutas")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarFrutas(){
 		return inventario.parseEspecifico(1).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de granos almacenada en el inventario
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/inventario/granos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarGranos(){
 		return inventario.parseEspecifico(2).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de carnes almacenada en el inventario
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/inventario/carnes")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarCarnes(){
 		return inventario.parseEspecifico(3).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de lacteos almacenada en el inventario
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/inventario/lacteos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String enviarLacteos(){
 		return inventario.parseEspecifico(4).toString();
 	}
+	
+	/**
+	 * Metodo que envia la informacion de vegetales almacenada en el inventario
+	 * @return JSONArray con la informacion requerida
+	 */
 	@GET
 	@Path("/inventario/vegetales")
 	@Produces(MediaType.APPLICATION_JSON)

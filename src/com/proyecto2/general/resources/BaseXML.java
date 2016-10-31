@@ -21,17 +21,29 @@ import com.proyecto2.general.estructuradatos.ColaPrioridad;
 import com.proyecto2.general.estructuradatos.ListaDoble;
 import com.proyecto2.general.estructuradatos.NodoDoble;
 
+/**
+ * Clase encargada de escribir informacion de lista enlazadas en archivos XML en un formato especifico
+ * @author alfredo
+ *
+ */
 public class BaseXML {
 
 	public ListaDoble<String,Platillo> basedatosmenu;
 	public ListaDoble<String,String> basedatosinv;
 	
+	/**
+	 * Constructor de la clase
+	 */
 	public BaseXML(){
 		basedatosmenu=new ListaDoble<String,Platillo>();
 		basedatosinv=new ListaDoble<String,String>();
 	}
 	
 	
+	/**
+	 * Metodo encargado de almacenar en una lista doble los progresos de las ordenes obtenidas
+	 * @return lista doble con la informacion requerida
+	 */
 	public ListaDoble<Integer,ListaDoble<String,String>> cargarProgresos(){
 		ListaDoble<Integer,ListaDoble<String,String>> progresos=new ListaDoble<Integer,ListaDoble<String,String>>();
 		try {
@@ -71,6 +83,10 @@ public class BaseXML {
 			return progresos;
 	}
 	
+	/**
+	 * Metodo encargado de almacenar en un archivo XML la informacion de una lista doble
+	 * @param progresos lista doble con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLprogreso(ListaDoble<Integer,ListaDoble<String,String>> progresos){
 		try{
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -107,6 +123,11 @@ public class BaseXML {
 		}		
 	}
 	
+	/**
+	 * Metodo que carga en una cola de prioridad la informacion almacenada en un archivo XML de formato especifico.
+	 * @param direccion direccion del archivo XML
+	 * @return cola de prioridad con la informacion deseada
+	 */
 	public ColaPrioridad<Integer,String> cargarJerarquia(String direccion){
 		ColaPrioridad<Integer,String> cola=new ColaPrioridad<Integer,String>();
 		try {
@@ -183,6 +204,10 @@ public class BaseXML {
 		return cola;
 	}
 	
+	/**
+	 * Metodo que escribe en un archivo XML la informacion contenidad en una cola de prioridad
+	 * @param cola cola de proridad con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLJerarquia(ColaPrioridad<Integer,String> cola){
 		try{
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -228,6 +253,10 @@ public class BaseXML {
 		}
 	}
 	
+	/**
+	 * Metodo que almacena en una archivo XML la informacion contenida en una matriz
+	 * @param matrix matriz con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLOrdenes(ListaDoble<String,ColaPrioridad<String,String>> matrix){
 		
 		try{
@@ -287,6 +316,10 @@ public class BaseXML {
 		
 	}
 
+	/**
+	 * Metodo que escribe en un archivo XML la informacion de una lista doble en una formato especifico
+	 * @param chefs lista doble con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLOrdenInicial(ListaDoble<String,String> chefs){
 		try{
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -334,6 +367,11 @@ public class BaseXML {
 			
 	}
 		
+	/**
+	 * Metodo que obtiene la informacion de un archivo XML y lo almacena en una matriz
+	 * @param chefs matriz en la cual se almacenara la informacion
+	 * @return matriz con la informacion deseada.
+	 */
 	public ListaDoble<String,ColaPrioridad<String,String>> cargarMatriz(ListaDoble<String,String>chefs){
 		ListaDoble<String,ColaPrioridad<String,String>> matriz=new ListaDoble<String,ColaPrioridad<String,String>>();
 		NodoDoble<String,String>temp=chefs.head;
@@ -344,6 +382,13 @@ public class BaseXML {
 		return matriz;
 	}
 		
+	/**
+	 * Metodo que almacena en una lista enlazada la informacion contenida en una rama de un archivo XML
+	 * @param cola lista en la cual se almacenara la informacion
+	 * @param direccion direccion del archivo XML
+	 * @param chefs nombre de la rama que contiene la informacion deseada
+	 * @return lista con la informacion deseada
+	 */
 	public ColaPrioridad<String,String> cargarOrden(ColaPrioridad<String,String> cola,String direccion,String chefs){
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -389,6 +434,12 @@ public class BaseXML {
 		return cola;
 	}
 	
+	/**
+	 * Metodo que almacena en una lista la informacion de una archivo XML
+	 * @param lista lista enlazada donde se almacenara la informacion deseada
+	 * @param direccion direccion del archivo XML
+	 * @return lista con la informacion deseada
+	 */
 	public ListaDoble<String,String> cargarChefs(ListaDoble<String,String> lista,String direccion){
 		try {
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -424,6 +475,10 @@ public class BaseXML {
 		
 	}
 	
+	/**
+	 * Metodo que sobreescribe un archivo XML con la informacion contenida en una lista enlazada
+	 * @param chefs lista con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLChefs(ListaDoble<String,String> chefs){
 		try {
 
@@ -455,6 +510,10 @@ public class BaseXML {
 	}
 	
 	
+	/**Metodo que cargar en una lista la informacion contenida en un archivo XML
+	 * @param direccion direccion del archivo XML
+	 * @return lista con la informacion deseada
+	 */
 	public ListaDoble<String,Platillo> cargarMenu(String direccion){
 		
 		
@@ -530,6 +589,10 @@ public class BaseXML {
 	}
 	
 	
+	/**Metodo que cargar en una lista la informacion contenida en un archivo XML
+	 * @param direccion direccion del archivo XML
+	 * @return lista con la informacion deseada
+	 */
 	public ListaDoble<String,String> cargarInventario(String direccion){
 		try{
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -566,6 +629,9 @@ public class BaseXML {
 		return basedatosinv;
 	}
 	
+	/**Metodo que almacena la informacion contenida en una lista enlazada en una archivo XML
+	 * @param menu lista con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLMenu(Menu menu){
 		  try {
 
@@ -648,6 +714,9 @@ public class BaseXML {
 	}
 
 	
+	/**Metodo que almacena la informacion contenida en una lista enlazada en una archivo XML
+	 * @param inventario lista con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLInventario(Inventario inventario){
 		try {
 
@@ -787,6 +856,10 @@ public class BaseXML {
 		
 	}
 
+	/**Metodo que cargar en una lista la informacion contenida en un archivo XML
+	 * @param direccion direccion del archivo XML
+	 * @return lista con la informacion deseada
+	 */
 	public ListaDoble<String,String> cargarChat(String direccion){
 		ListaDoble<String,String> mensajes=new ListaDoble<String,String>();
 		try {
@@ -819,6 +892,9 @@ public class BaseXML {
 		return mensajes;
 	}
 
+	/**Metodo que almacena la informacion contenida en una lista enlazada en una archivo XML
+	 * @param chat lista con la informacion que se desea almacenar
+	 */
 	public void escrituraXMLChat(ListaDoble<String,String> chat){
 		try{
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

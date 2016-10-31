@@ -7,6 +7,12 @@ import com.proyecto2.general.estructuradatos.ListaDoble;
 import com.proyecto2.general.estructuradatos.NodoDoble;
 
 
+
+/**
+ * Clase encargada de almacenar informacion de alimentos  por categorias definidas
+ * @author alfredo
+ *
+ */
 public class Inventario {
 	
 	public ListaDoble<String,String> frutas;
@@ -15,6 +21,10 @@ public class Inventario {
 	public ListaDoble<String,String> vegetales;
 	public ListaDoble<String,String> lacteos;
 
+	/**
+	 * Constructor de la clase
+	 * @param inventario lista enlazada que contiene los elementos que se desea clasificar.
+	 */
 	public Inventario(ListaDoble<String,String> inventario) {
 		frutas=new ListaDoble<String,String>();
 		granos=new ListaDoble<String,String>();
@@ -25,6 +35,11 @@ public class Inventario {
 		ordenar();
 	}
 	
+	/**
+	 * Metodo que agrega un elementos a una categoria especifica
+	 * @param categoria cadena de texto que representa el nombre de la categoria
+	 * @param ingrediente cadena de texto que contiene el nombre del ingrediente que se desea agregar.
+	 */
 	public void agregarIngrediente(String categoria,String ingrediente){
 		switch(categoria){
 		case "fruta": frutas.addFirst(ingrediente, "");break;
@@ -35,6 +50,10 @@ public class Inventario {
 		}
 	}
 	
+	/**
+	 * Metodo que clasifica los elementos de una lista enlazada en categorias
+	 * @param inventario lista enlazada con los elementos a clasificar
+	 */
 	public void rellenar(ListaDoble<String,String> inventario){
 		NodoDoble<String,String> tmp=inventario.head;
 		while(tmp!=null){
@@ -43,6 +62,9 @@ public class Inventario {
 		}
 	}
 	
+	/**
+	 * Metodo que ordena los elementos de cada categoria segun un algoritmo diferente,
+	 */
 	public void ordenar(){
 		OrdenamientoDLL.QuickSort(frutas);
 		granos=OrdenamientoDLL.RadixSort(granos,new String[granos.size]);
@@ -52,6 +74,11 @@ public class Inventario {
 	}
 	
 	
+	/**
+	 * Metodo que coloca la informacion de una categoria dentro de un JSONArray.
+	 * @param atributo numeto entero que representa la categoria que se desea obtener
+	 * @return JSONArray con la informacion de una categoria.
+	 */
 	public JSONArray parseEspecifico(int atributo){
 		JSONArray arreglo=new JSONArray();
 		if(atributo==1){

@@ -1,7 +1,5 @@
 package com.proyecto2.general.busquedaordenamiento;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import sun.misc.Queue;
 
@@ -10,12 +8,24 @@ import com.proyecto2.general.estructuradatos.NodoDoble;
 
 
 
+/**
+ * Clase que implementa algoritmos de ordenamiento
+ * @author alfredo
+ *
+ */
 public class OrdenamientoDLL {
 
+	/**
+	 * Constructor de la clase
+	 */
 	public OrdenamientoDLL(){
 		
 	}
 	
+	/**
+	 * Metodo que realiza el insertion sort sobre una lista doblemente enlazada
+	 * @param lista lista que se desea ordenar
+	 */
 	public static <T extends Comparable<T>,E> void InsertionSort(ListaDoble<T,E> lista){
 	NodoDoble<T,E> i=null,j=null;
 	for(i=lista.head.next;i!=null;i=i.next){
@@ -30,6 +40,11 @@ public class OrdenamientoDLL {
 		}
 	}
 	
+	/**
+	 * Metodo que intercambio dos elementos de lugar en una lista enlazada doble
+	 * @param a puntero al primer elemento
+	 * @param b puntero al segundo elemento
+	 */
 	public static <T extends Comparable<T>,E> void intercambio(NodoDoble<T,E> a, NodoDoble<T,E> b) {
 		T tmp = a.llave;
 		a.llave = b.llave;
@@ -39,6 +54,10 @@ public class OrdenamientoDLL {
 		b.valor=vtmp;
 		}
 	
+	/**
+	 * Metodo que realiza el bubble sort sobre una lista doblemente enlazada
+	 * @param lista lista que se desea ordenar
+	 */
 	public static <T extends Comparable<T>,E> void BubbleSort(ListaDoble<T,E> lista){
 		int remaining = lista.size - 1;
 	      for(int x = 0; x < (lista.size-1); x++) {
@@ -52,6 +71,12 @@ public class OrdenamientoDLL {
 	      }
 		}
 		
+	/**
+	 * Metodo que busca una posicion especifica dentro de una lista enlazada doble
+	 * @param lista lista sobre la cual se realizara la busqueda
+	 * @param num posicion que se desea obtener
+	 * @return puntero al nodo en la posicion deseada
+	 */
 	public static <T extends Comparable<T>,E> NodoDoble<T,E> buscar(ListaDoble<T,E> lista,int num){
 		NodoDoble<T,E> temp=lista.head;
 		while(num!=0){
@@ -61,6 +86,10 @@ public class OrdenamientoDLL {
 		return temp;
 	}
 	
+	/**
+	 * Metodo que realiza el shell sort sobre una lista doblemente enlazada
+	 * @param lista lista que se desea ordenar
+	 */
 	public  static <T extends Comparable<T>,E> void ShellSort (ListaDoble<T,E> lista) {
 		int adentro,afuera;
 		T temp;
@@ -87,6 +116,13 @@ public class OrdenamientoDLL {
 		}
 	}
 	
+	/**
+	 * Metodo que devuelve una sublista a partir de una lista doblemente enlazada
+	 * @param lista lista de la cual se obtendra la sublista
+	 * @param inicio posicion inicial
+	 * @param fin posicion final
+	 * @return sublista
+	 */
 	private static <T extends Comparable<T>,E> int particion(ListaDoble<T,E> lista, int inicio, int fin){
 		T pivote = buscar(lista,inicio).llave;
 		while(inicio<fin){
@@ -97,6 +133,13 @@ public class OrdenamientoDLL {
 		return inicio;
 	}
 	
+	
+	/**
+	 * Metodo que realiza el quicksort sobre una lista doblemente enlazada
+	 * @param lista lista que se desea ordenar
+	 * @param inicio posicion inicial
+	 * @param fin posicion final
+	 */
 	private static <T extends Comparable<T>,E> void QuickSort(ListaDoble<T,E> lista,int inicio,int fin){
 		if(inicio>=fin)return;
 		int indicePivot=particion(lista,inicio,fin);
@@ -104,9 +147,21 @@ public class OrdenamientoDLL {
 		QuickSort(lista,indicePivot+1,fin);
 	}
 	
+	/**
+	 * Metodo que realiza el quick sort sobre una lista doblemente enlazada
+	 * @param lista lista que se desea ordenar
+	 */
 	public static <T extends Comparable<T>,E> void QuickSort(ListaDoble<T,E> lista){
 		QuickSort(lista,0,lista.size-1);
 	}		
+	
+	
+	/**
+	 * Metodo que realiza el radix sort sobre una lista enlazada
+	 * @param array arreglo utilizada para almacenar los datos segun el digito que se este analizando
+	 * @param length largo de la lista
+	 * @param wordLen largo de las palabras
+	 */
 	public static void radixSort(String[] array, int length, int wordLen) {
 		    Queue[] queueArray = new Queue[256];
 		    for (int queueNum = 0; queueNum < 256; queueNum++) {
@@ -131,6 +186,11 @@ public class OrdenamientoDLL {
 		        }   
 		    }
 		}
+		/**
+		 * Metodo la cantidad de caracteres de la palabra con mas digitos en una lista
+		 * @param array lista sobre la cual se realizara la busqueda y comparacion
+		 * @return numero entero que representa el largo de la palabra
+		 */
 		public static int maxLength (String[] array){
 		int largo = 0;
 		for (int i = 0; i < array.length; i++){
@@ -143,6 +203,10 @@ public class OrdenamientoDLL {
 		}
 
 
+		/**
+		 * Metodo que deja todas las palabras almacenadas dentro de una lista del mismo tamano
+		 * @param array lista enlazada con las palabras
+		 */
 		public static void rellenar(String[] array){
 		int largo = maxLength(array);
 		for(int i = 0; i < array.length; i++){
@@ -151,6 +215,11 @@ public class OrdenamientoDLL {
 		}
 		}
 
+		/**
+		 * Metodo que cambia el largo de una cadena de texto
+		 * @param n numero de caracteres que tendra la cadena de texto
+		 * @return cadena de texto modificada
+		 */
 		public static String addN(int n){
 		String str = "";
 		for(int i = 0; i < n; i++){
@@ -159,6 +228,10 @@ public class OrdenamientoDLL {
 		return str;
 		}
 
+		/**
+		 * Metodo que eliminar caracteres secuenciales repetidos de una cadena de texto
+		 * @param array lista enlazada de palabras
+		 */
 		public static void limpiar(String[] array){
 		for(int i = 0; i < array.length; i++){
 		String index = array[i];
@@ -168,6 +241,10 @@ public class OrdenamientoDLL {
 		}
 		}
 		
+		/**
+		 * Metodo que realiza el radix sort sobre una lista doblemente enlazada
+		 * @param lista lista que se desea ordenar
+		 */
 		public static<E> ListaDoble<String,E> RadixSort(ListaDoble<String,E> lista,String[]arr){
 			NodoDoble<String,E>temp=lista.head;
 			int i=0;
